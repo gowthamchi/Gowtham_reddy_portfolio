@@ -90,4 +90,4 @@ EMAIL_USE_SSL = True
 
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')    # ✅ App password (not your Gmail login!)
-ALLOWED_HOSTS = ['your-render-service-name.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['dinesh-portfolio-hjg3.onrender.com', 'localhost', '127.0.0.1']
