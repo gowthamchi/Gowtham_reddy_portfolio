@@ -31,7 +31,7 @@ def contact(request):
             return HttpResponseRedirect(whatsapp_link)
              
     return render(request, 'contact.html')
-def home(request):
+def index (request):
     return render(request, 'index.html')
 def about(request):
     return render(request, 'about.html')
