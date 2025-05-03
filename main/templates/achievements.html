@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Achievements - Dinu Portfolio</title>
+  <style>
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #000000;
+      --primary-color: #007bff;
+      --secondary-color: #f8f9fa;
+      --accent-color: #ff79c6;
+      --font-family: Arial, sans-serif;
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #121212;
+      --text-color: #ffffff;
+      --primary-color: #1e90ff;
+      --secondary-color: #333333;
+      --accent-color: #ff79c6;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: var(--font-family);
+      margin: 0;
+      padding: 0;
+      font-size: 16px;
+      line-height: 1.6;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+      color: var(--bg-color);
+    }
+
+    .header-title {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--bg-color);
+      font-size: 1rem;
+      background-color: var(--primary-color);
+      padding: 10px 15px;
+      border-radius: 5px;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    nav a:hover {
+      background-color: var(--accent-color);
+      transform: scale(1.1);
+    }
+
+    .typing-title {
+      text-align: center;
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin: 30px 0 20px;
+    }
+
+    .typing-title span {
+      white-space: nowrap;
+      overflow: hidden;
+      display: inline-block;
+      animation: typing 4s steps(40, end), blink 0.75s step-end infinite;
+    }
+
+    @keyframes typing { from { width: 0; } to { width: 100%; } }
+    @keyframes blink { 50% { border-color: transparent; } }
+
+    section {
+      padding: 50px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .achievements-box {
+      background: var(--secondary-color);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    #searchInput {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .achievements-box ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .achievements-box li {
+      font-size: 1rem;
+      margin-bottom: 20px;
+      color: var(--text-color);
+    }
+
+     footer {
+      background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+      color: var(--bg-color);
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .footer-links a {
+      color: var(--bg-color);
+      font-size: 1.2rem;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      transform: scale(1.1);
+      color: var(--accent-color);
+    }
+
+    .footer-contact {
+      font-size: 0.9rem;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .typing-title { font-size: 30px; }
+      .header-title { font-size: 1.5rem; }
+    }
+
+  </style>
+</head>
+<body data-theme="light">
+  <header>
+    <div class="header-title">Dinu's Portfolio</div>
+    <nav><a href="/">Home</a></nav>
+  </header>
+
+  <h1 class="typing-title"><span>🏆 Achievements</span></h1>
+
+  <section>
+    <div class="achievements-box">
+      <input type="text" id="searchInput" placeholder="🔍 Search Achievements..." onkeyup="filterAchievements()">
+
+    <ul id="achievementList">
+  <li>🥇 <strong>Top Academic Performer:</strong> Consistently scored 80%+ in MCA, recognized for innovative project execution.</li>
+  <li>💡 <strong>Real-World Project Builder:</strong> Developed and deployed 3 apps — <em>Workforce Aggregator</em>, <em>Helping Hands</em>, and <em>Ticket Exchange</em>.</li>
+  <li>🌐 <strong>Professional Portfolio Creator:</strong> Designed a live portfolio with theme toggle, animations, and project previews.</li>
+  <li>📜 <strong>Certified Full Stack Developer:</strong> Completed a 6-month hands-on program in Django, REST APIs, React, and Git.</li>
+  <li>👨‍💻 <strong>Open Source Contributor:</strong> Improved code, resolved issues, and submitted PRs on GitHub during training.</li>
+  <li>🗣️ <strong>Strong Communicator:</strong> Completed Tech Mahindra’s Communication & Teamwork training with excellent feedback.</li>
+  <li>🚀 <strong>UI/UX Excellence:</strong> Portfolio rated 10/10 by mentors for design, responsiveness, and backend integration.</li>
+  <li>🔧 <strong>DevOps Explorer:</strong> Hands-on with deployment, version control, and CI/CD during personal projects.</li>
+  <li>🎨 <strong>Creative Coder:</strong> Built UIs with smooth animations, theme switching, and responsive layouts.</li>
+</ul>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/dinu2854i/" target="_blank">LinkedIn</a>
+      <a href="https://github.com/dinu2854i" target="_blank">GitHub</a>
+      <a href="mailto:ydinu2854i@gmail.com">Email</a>
+      <a href="tel:+917995775924">Phone</a>
+    </div>
+    <div class="footer-contact">
+      <p>&copy; 2025 Dinu Portfolio. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.body.dataset.theme = localStorage.getItem("theme") || "light";
+    });
+
+    function filterAchievements() {
+      const input = document.getElementById("searchInput");
+      const filter = input.value.toLowerCase();
+      const ul = document.getElementById("achievementList");
+      const li = ul.getElementsByTagName("li");
+
+      for (let i = 0; i < li.length; i++) {
+        const text = li[i].textContent || li[i].innerText;
+        li[i].style.display = text.toLowerCase().includes(filter) ? "list-item" : "none";
+      }
+    }
+  </script>
+</body>
+</html>

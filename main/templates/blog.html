@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog - Dinu Portfolio</title>
+  <style>
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #000000;
+      --primary-color: #007bff;
+      --secondary-color: #f8f9fa;
+      --accent-color: #ff79c6;
+      --font-family: Arial, sans-serif;
+    }
+    [data-theme="dark"] {
+      --bg-color: #121212;
+      --text-color: #ffffff;
+      --primary-color: #1e90ff;
+      --secondary-color: #333333;
+      --accent-color: #ff79c6;
+    }
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: var(--font-family);
+      margin: 0;
+      padding: 0;
+      transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+      color: var(--bg-color);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .header-title {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    nav a {
+      text-decoration: none;
+      color: var(--bg-color);
+      font-size: 1rem;
+      background-color: var(--primary-color);
+      padding: 10px 15px;
+      border-radius: 5px;
+      transition: background 0.3s, transform 0.3s;
+    }
+    nav a:hover {
+      background-color: var(--accent-color);
+      transform: scale(1.1);
+    }
+    .typing-title {
+      text-align: center;
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 20px;
+    }
+    .typing-title span {
+      white-space: nowrap;
+      overflow: hidden;
+      display: inline-block;
+      animation: typing 4s steps(40, end), blink 0.75s step-end infinite;
+    }
+    @keyframes typing { from { width: 0; } to { width: 100%; } }
+    @keyframes blink { 50% { border-color: transparent; } }
+
+    .filter-btn {
+      background: var(--primary-color);
+      color: var(--bg-color);
+      border: none;
+      margin: 0 10px;
+      padding: 10px 20px;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: #0056b3;
+    }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    .blog-card {
+      background: var(--secondary-color);
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.3s;
+    }
+    .blog-card:hover {
+      transform: translateY(-5px);
+    }
+    .blog-tag {
+      font-size: 0.85rem;
+      color: #888;
+    }
+    .blog-card h3 {
+      margin: 10px 0;
+      color: var(--primary-color);
+      font-size: 20px;
+    }
+    .blog-card p {
+      color: var(--text-color);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    .read-more {
+      display: inline-block;
+      margin-top: 15px;
+      color: var(--primary-color);
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .read-more:hover {
+      text-decoration: underline;
+    }
+    footer {
+      background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+      color: var(--bg-color);
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .footer-links a {
+      color: var(--bg-color);
+      font-size: 1.2rem;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      transform: scale(1.1);
+      color: var(--accent-color);
+    }
+
+    .footer-contact {
+      font-size: 0.9rem;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .typing-title { font-size: 30px; }
+      .header-title { font-size: 1.5rem; }
+    }
+
+  </style>
+</head>
+<body data-theme="light">
+  <header>
+    <div class="header-title">Dinu's Portfolio</div>
+    <nav><a href="/">Home</a></nav>
+  </header>
+
+  <h1 class="typing-title"><span>📝 Blog Posts</span></h1>
+
+  <section id="blog">
+  <div style="text-align:center; margin-bottom: 40px;">
+    <button class="filter-btn active" onclick="filterPosts('all')">All</button>
+    <button class="filter-btn" onclick="filterPosts('django')">Django</button>
+    <button class="filter-btn" onclick="filterPosts('project')">Projects</button>
+    <button class="filter-btn" onclick="filterPosts('learning')">Learning</button>
+  </div>
+
+  <div class="blog-grid">
+
+    <!-- Blog 1 -->
+    <div class="blog-card" data-category="django">
+      <span class="blog-tag">March 2025 · Django</span>
+      <h3>Why Django is My Full Stack Backbone</h3>
+      <p>From authentication to admin dashboards, Django’s batteries-included approach has powered all my real-world projects.</p>
+      <a class="read-more">Read More</a>
+    </div>
+
+    <!-- Blog 2 -->
+    <div class="blog-card" data-category="project">
+      <span class="blog-tag">Feb 2025 · Project Deep Dive</span>
+      <h3>Behind the Build: Workforce Aggregator</h3>
+      <p>How I designed smart APIs, integrated MySQL, and built a scalable system that improves hiring workflows.</p>
+      <a class="read-more">Read More</a>
+    </div>
+
+    <!-- Blog 3 -->
+    <div class="blog-card" data-category="learning">
+      <span class="blog-tag">Jan 2025 · Learning</span>
+      <h3>My Full Stack Journey at JSpiders</h3>
+      <p>6 months of real coding, from REST APIs to version control — here's what actually mattered and how I applied it.</p>
+      <a class="read-more">Read More</a>
+    </div>
+
+    <!-- Blog 4 -->
+    <div class="blog-card" data-category="learning">
+      <span class="blog-tag">Coming Soon</span>
+      <h3>Debug Diary: My First Real Bug Fix</h3>
+      <p>A lesson in patience and precision — how I traced a broken login flow and solved it without Stack Overflow.</p>
+      <a class="read-more">Read More</a>
+    </div>
+
+  </div>
+</section>
+
+  <footer>
+    <div class="footer-links">
+     <a href="https://www.linkedin.com/in/dinu2854i/" target="_blank">LinkedIn</a>
+      <a href="https://github.com/dinu2854i" target="_blank">GitHub</a>
+      <a href="mailto:ydinu2854i@gmail.com">Email</a>
+      <a href="tel:+917995775924">Phone</a>
+   </div>
+    <div class="footer-contact">
+      <p>&copy; 2025 Dinu Portfolio. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.body.dataset.theme = localStorage.getItem("theme") || "light";
+    });
+    function filterPosts(category) {
+      const cards = document.querySelectorAll('.blog-card');
+      const buttons = document.querySelectorAll('.filter-btn');
+
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      cards.forEach(card => {
+        const match = category === 'all' || card.dataset.category === category;
+        card.style.display = match ? 'block' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>

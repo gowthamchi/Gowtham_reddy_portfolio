@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Experience - Dinu Portfolio</title>
+ <style>
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #000000;
+      --primary-color: #007bff;
+      --secondary-color: #f8f9fa;
+      --accent-color: #ff79c6;
+      --font-family: Arial, sans-serif;
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #121212;
+      --text-color: #ffffff;
+      --primary-color: #1e90ff;
+      --secondary-color: #333333;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-family);
+      background: var(--bg-color);
+      color: var(--text-color);
+      transition: all 0.3s ease-in-out;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+      color: var(--bg-color);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .header-title {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    .home-link {
+      text-decoration: none;
+      background: var(--primary-color);
+      color: var(--bg-color);
+      padding: 10px 15px;
+      border-radius: 5px;
+      transition: 0.3s;
+      font-weight: bold;
+    }
+
+    .home-link:hover {
+      background: var(--accent-color);
+      transform: scale(1.05);
+    }
+
+    
+    .typing-title {
+      text-align: center;
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin: 40px 20px 20px;
+    }
+
+    .typing-title span {
+      white-space: nowrap;
+      overflow: hidden;
+      display: inline-block;
+      animation: typing 3s steps(40, end), blink 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    ul {
+      padding-left: 20px;
+      line-height: 1.8;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      color: var(--primary-color);
+      margin-top: 40px;
+    }
+
+    footer {
+      background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+      color: var(--bg-color);
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .footer-links a {
+      color: var(--bg-color);
+      font-size: 1.2rem;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-color);
+      transform: scale(1.1);
+    }
+
+    .footer-contact {
+      margin-top: 10px;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 768px) {
+      .header-title {
+        font-size: 1.5rem;
+      }
+
+      .typing-title {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body data-theme="light">
+  <header>
+    <div class="header-title">Dinu's Portfolio</div>
+    <a href="/" class="home-link">Home</a>
+  </header>
+
+  <section>
+    <h1 class="typing-title"><span>💼 My Experience</span></h1>
+  
+    <body data-theme="light">
+    
+    <p data-aos="fade-up" data-aos-delay="100">
+      While I may not have corporate experience yet, I’ve built and deployed real-world web apps , collaborated through Git, and solved practical challenges. Here's how I turn code into capability:
+    </p>
+
+    <ul data-aos="fade-up" data-aos-delay="200">
+      <li>✅ Built full-stack web apps using Django, MySQL, and REST APIs</li>
+      <li>✅ Used Git/GitHub for version control and collaborative development</li>
+      <li>✅ Applied Agile methods in team projects and sprints</li>
+      <li>✅ Debugged complex logic and optimized queries for performance</li>
+      <li>✅ Deployed apps on Heroku, Vercel, and GitHub Pages</li>
+      <li>✅ Presented demos, documented code, and followed clean architecture principles</li>
+    </ul>
+
+    <p data-aos="zoom-in" data-aos-delay="300">
+      I don’t wait for experience — I create it.
+    </p>
+
+    <h2 data-aos="fade-right">💻 Open Source & Collaboration</h2>
+    <p data-aos="fade-up" data-aos-delay="200">
+     I'm an active contributor to the developer community through open-source platforms and real-world team projects.
+    </p>
+    <ul>
+      <li>🛠️ GitHub Contributions: Resolved bugs, optimized backend routes, and submitted pull requests on open-source Django and REST API projects.</li>
+      <li>🤝 Workforce Aggregator Project: Collaborated in an Agile team, led API development, and ensured seamless integration between frontend and backend.</li>
+      <li>🧠 Code Reviews & Forums: Engaged in peer code reviews, participated in developer forums, and shared solutions to help others improve.</li>
+      <li>📂 Version Control Practices: Used Git branches, merge requests, and commit standards to maintain clean and collaborative repositories.</li>
+      <li>🚀 Learning in Public: I believe in learning by doing — documenting my fixes, receiving feedback, and improving through the community.</li>
+    </ul>
+    <div>“In open source and teamwork, growth is exponential — because knowledge multiplies when shared.” </div>
+
+
+  </section>
+
+  <footer>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/dinu2854i/" target="_blank">LinkedIn</a>
+      <a href="https://github.com/dinu2854i" target="_blank">GitHub</a>
+      <a href="mailto:ydinu2854i@gmail.com">Email</a>
+      <a href="tel:+917995775924">Phone</a>
+     </div>
+    <div class="footer-contact">
+      <p>&copy; 2025 Dinu Portfolio. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.body.dataset.theme = localStorage.getItem("theme") || "light";
+      AOS.init({ duration: 1000, once: true });
+    });
+  </script>
+</body>
+</html>

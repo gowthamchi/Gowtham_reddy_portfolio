@@ -1,0 +1,478 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Dinu Portfolio</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --primary-color: #007bff;
+            --secondary-color: #f8f9fa;
+            --accent-color: #ff79c6;
+            --input-bg: #ffffff;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #ffffff;
+            --primary-color: #1e90ff;
+            --secondary-color: #333333;
+            --input-bg: #1e1e1e;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            color: var(--bg-color);
+        }
+
+        .header-title {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--bg-color);
+            font-size: 1rem;
+            background-color: var(--primary-color);
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        nav a:hover {
+            background-color: var(--accent-color);
+            transform: scale(1.1);
+        }
+
+        .typing-title {
+            text-align: center;
+            font-size: 42px;
+            font-weight: 700;
+            color: #007bff;
+            margin-bottom: 20px;
+            height: 55px;
+        }
+
+        .typing-title span {
+            white-space: nowrap;
+            overflow: hidden;
+            display: inline-block;
+            animation: typing 4s steps(40, end);
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+         .projects-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; /* Centers the cards horizontally */
+        align-items: center; /* Centers the cards vertically */
+        gap: 20px; /* Adds spacing between the cards */
+        padding: 20px;
+    }
+
+        .project-card {
+            background: linear-gradient(145deg, #ffffff, #e6e6e6);
+            border-radius: 15px;
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2), -10px -10px 20px rgba(255, 255, 255, 0.5);
+            width: 400px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+            perspective: 1000px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card:hover {
+            transform: translateY(-15px) rotateX(8deg) rotateY(-8deg);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .project-card h2 {
+            font-size: 1.8rem;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .project-card .date-time {
+            font-size: 0.9rem;
+            color: #888;
+            margin-top: 10px;
+        }
+         .projects-container {
+        display: flex;
+        flex-wrap: wrap; /* Allows wrapping to the next row */
+        justify-content: center; /* Centers the cards horizontally */
+        gap: 20px; /* Adds spacing between the cards */
+        padding: 20px;
+    }
+
+    .project-card {
+        background: linear-gradient(145deg, #ffffff, #e6e6e6);
+        border-radius: 15px;
+        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2), -10px -10px 20px rgba(255, 255, 255, 0.5);
+        width: 400px; /* Default width for larger screens */
+        padding: 20px;
+        text-align: center;
+        transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+        perspective: 1000px;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .project-card:hover {
+        transform: translateY(-15px) rotateX(8deg) rotateY(-8deg);
+        box-shadow: 0 20px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .project-card {
+            width: 100%; /* Full width on smaller screens */
+        }
+    }
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2;
+            z-index: -1;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .project-card:hover::before {
+            opacity: 0.4;
+        }
+
+        .project-card[data-bg="workforce"]::before {
+            background-image: url("{% static 'images/worker.jpg' %}");
+        }
+
+        .project-card[data-bg="helping-hands"]::before {
+            background-image: url("{% static 'images/Helping_Hands.png' %}");
+        }
+
+        .project-card[data-bg="portfolio"]::before {
+            background-image: url("{% static 'images/portfolio.jpg' %}");
+        }
+
+        .project-card[data-bg="ticket-exchange"]::before {
+            background-image: url("{% static 'images/tixexchange_logo.webp' %}");
+        }
+
+            .project-details[data-bg="workforce"] {
+        background-image: url("{% static 'images/worker.jpg' %}");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        text-align: center;
+    }
+
+    .project-details[data-bg="helping-hands"] {
+        background-image: url("{% static 'images/Helping_Hands.png' %}");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        text-align: center;
+    }
+
+    .project-details[data-bg="portfolio"] {
+        background-image: url("{% static 'images/portfolio.jpg' %}");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        text-align: center;
+    }
+
+    .project-details[data-bg="ticket-exchange"] {
+        background-image: url("{% static 'images/tixexchange_logo.webp' %}");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        text-align: center;
+    }
+    .project-details[data-bg] {
+        position: relative;
+        overflow: hidden;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .project-details[data-bg]::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: inherit;
+        background-size: inherit;
+        background-position: inherit;
+        background-repeat: inherit;
+        filter: blur(100px);
+        z-index: -1;
+    }
+.project-details {
+        position: relative;
+        z-index: 1;
+        padding: 20px;
+        border-radius: 10px;
+        color: var(--text-color);
+    }
+
+    /* Default background for project details */
+    .project-details[data-bg="workforce"],
+    .project-details[data-bg="portfolio"] {
+        background-color: #000000; /* Black background */
+        color: rgb(3, 3, 3); /* White text */
+    }
+
+    .project-details[data-bg="ticket-exchange"],
+    .project-details[data-bg="helping-hands"] {
+        background-color: #ffffff; /* White background */
+        color: hwb(0 97% 3%); /* Black text */
+    }
+
+
+    .project-details {
+        display: none;
+        margin-top: 20px;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        background-color: var(--secondary-color); /* Fallback color */
+        color: var(--text-color);
+    }
+
+    .project-details.active {
+        display: block;
+    }
+    .project-box {
+  padding: 25px;
+  margin-bottom: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+.project-box:hover {
+  transform: scale(1.02);
+}
+.skill-tag {
+  display: inline-block;
+  background: #e0f2f1;
+  color: #00796b;
+  font-weight: bold;
+  padding: 4px 10px;
+  margin: 3px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+.github-link {
+  display: inline-block;
+  margin-top: 12px;
+  color: #2962ff;
+  text-decoration: none;
+  font-weight: bold;
+}
+.github-link:hover {
+  text-decoration: underline;
+}
+
+        footer {
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            color: var(--bg-color);
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .footer-links a {
+            color: var(--bg-color);
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            transform: scale(1.1);
+            color: var(--accent-color);
+        }
+
+        .footer-contact {
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+    <div class="header-title">Dinu's Portfolio</div>
+    <nav><a href="/">Home</a></nav>
+  </header> 
+    <section>
+        <div class="projects-container">
+            <h1 class="typing-title"><span>📂 My Projects</span></h1>
+        </div>
+    </section>
+
+    <section>
+  <div class="projects-container">
+    <div class="project-card" data-bg="workforce" onclick="showDetails('workforce')">
+      <h2>Workforce Aggregator</h2>
+      <p>A real-time Django-based platform connecting users with skilled workers efficiently.</p>
+    </div>
+    <div class="project-card" data-bg="helping-hands" onclick="showDetails('helping-hands')">
+      <h2>Helping Hands</h2>
+      <p>A donation-based platform supporting orphanages by addressing their real-time needs.</p>
+    </div>
+    <div class="project-card" data-bg="portfolio" onclick="showDetails('portfolio')">
+      <h2>Developer Portfolio</h2>
+      <p>A personal project portal showcasing achievements, skills, and real-world applications.</p>
+    </div>
+    <div class="project-card" data-bg="ticket-exchange" onclick="showDetails('ticket-exchange')">
+      <h2>Ticket Exchange</h2>
+      <p>A platform to sell or exchange expiring event/travel tickets with ease and security.</p>
+    </div>
+  </div>
+</section>
+
+<section class="projects-detailed">
+<div id="workforce" class="project-details" data-bg="workforce">
+  <div class="project-box highlight">
+    <h2>✅ Workforce Aggregator</h2>
+    <p><strong>Start Date:</strong> MAY-2024 &nbsp;|&nbsp; <strong>End Date:</strong> AUG-2024</p>
+    <p><strong>Skills Used:</strong> 
+      <span class="skill-tag">Python</span>
+      <span class="skill-tag">Django</span>
+      <span class="skill-tag">SQL</span>
+      <span class="skill-tag">HTML/CSS</span>
+    </p>
+  <strong>Description</strong>
+<p>  The Workforce Aggregator is a full-stack Django application designed to simplify the process of hiring skilled workers for various tasks. Inspired by the common problem of manually finding reliable laborers or freelancers in local areas, this platform enables users to discover and connect with verified workers in real-time. I led the project as the Innovator and Lead Developer, ensuring the user interface was intuitive and responsive. The system includes secure user registration, dynamic search filters, and real-time availability indicators to streamline hiring decisions.</p>
+<p> The platform also supports worker-to-user interactions through a secure messaging module and booking confirmations. Admin tools were developed for data management and moderation. This project showcases my strengths in backend design, REST API integration, and team coordination, while also demonstrating my commitment to solving practical, real-world challenges through technology.</p>
+  <a class="github-link" href="https://github.com/dinu/workforce-aggregator" target="_blank">🔗 GitHub Repository</a>
+</div></div>
+
+<div id="helping-hands" class="project-details" data-bg="helping-hands">
+  <div class="project-box highlight">
+    <h2>✅ Helping Hands</h2>
+    <p><strong>Start Date:</strong> MAY-2022 &nbsp;|&nbsp; <strong>End Date:</strong> JUNE-2022</p>
+    <p><strong>Skills Used:</strong> 
+      <span class="skill-tag">Python</span>
+      <span class="skill-tag">Django</span>
+      <span class="skill-tag">SQL</span>
+      <span class="skill-tag">HTML/CSS</span>
+    </p>
+  <strong>Description:</strong>
+<p>   Helping Hands is a socially driven web platform built to support orphanages by connecting them with donors and volunteers. Developed as a team project, I contributed to the backend and helped implement a clean frontend interface. The goal was to provide a bridge between orphanage homes and the community to increase transparency and support. The platform enables orphanages to register, list their current needs, and receive direct donations through bank account integration, ensuring funds are securely transferred to the right hands.</p>
+<p>   Users can also browse verified orphanage profiles, view reports on their needs, and make informed contributions. This project taught me how to handle sensitive user data securely, validate forms, and manage multi-user roles within a Django ecosystem. It deepened my understanding of ethical development and social impact through code. </p>
+<a class="github-link" href="https://github.com/dinu/helping-hands" target="_blank">🔗 GitHub Repository</a>
+ </div>
+</div>
+
+<div id="portfolio" class="project-details" data-bg="portfolio">
+  <div class="project-box highlight">
+    <h2>✅ Developer Portfolio Website</h2>
+    <p><strong>Start Date:</strong> APRIL-2025 &nbsp;|&nbsp; <strong>End Date:</strong> MAY-2025</p>
+    <p><strong>Skills Used:</strong> 
+      <span class="skill-tag">HTML/CSS</span>
+      <span class="skill-tag">Django</span>
+      <span class="skill-tag">JavaScript</span>
+      <span class="skill-tag">Responsive UI</span>
+    </p>
+  <strong>Description:</strong>
+  <p>   This interactive developer portfolio is more than just a personal website—it’s a dynamic platform that demonstrates my skills, live projects, blog posts, testimonials, and certifications. The portfolio is structured with animated components, dark/light theme support, filtering options, and a backend that manages projects and contact submissions. Designed with both recruiters and collaborators in mind, it allows users to get a quick yet in-depth understanding of my professional journey.</p>
+<p>   The site includes project demos, technology tags, career interests, and a contact section integrated with email and WhatsApp. It also features a unique “Ticket Exchange” card showcasing upcoming launches. This project reflects my passion for clean UI/UX, real-time feedback, and creating scalable web apps. It’s hosted on a live server and continuously updated based on feedback.</p>
+<a class="github-link" href="https://github.com/dinu/developer-portfolio" target="_blank">🔗 GitHub Repository</a>
+  </div>
+</div>
+
+<div id="ticket-exchange" class="project-details" data-bg="ticket-exchange">
+  <div class="project-box highlight">
+    <h2>✅ Ticket Exchange Platform</h2>
+    <p><strong>Start Date:</strong> MAY-2025 &nbsp;|&nbsp; <strong>End Date:</strong> COMING SOON</p>
+    <p><strong>Skills Used:</strong> 
+      <span class="skill-tag">Django</span>
+      <span class="skill-tag">Python</span>
+      <span class="skill-tag">SQL</span>
+      <span class="skill-tag">HTML/CSS</span>
+    </p>
+  <strong>Description:</strong>
+  <p>   Ticket Exchange is an <strong>upcoming platform</strong> designed to help users resell or exchange their unused or expiring tickets—whether it's for travel, events, or shows. It solves a real problem: when users can’t use a ticket they’ve bought, they often have no easy way to resell it. This system allows users to upload ticket details, set prices, and let other users purchase them securely. I built the core backend and front-facing features that handle ticket listings, secure authentication, and status tracking.</p>
+<p>   The idea was sparked by personal experiences of losing ticket value due to sudden plan changes. The portal has validation features to avoid fraudulent listings, and secure checkout integration is under development. Future enhancements include chat-based negotiation, ratings, and Razorpay/UPI integration. This project showcases my entrepreneurial thinking and ability to build MVPs with real-world scalability.</p>
+  <a class="github-link" href="https://github.com/dinu/ticket-exchange" target="_blank">🔗 GitHub Repository</a>
+</div>
+</div>
+</section>
+
+
+    <footer>
+        <div class="footer-links">
+      <a href="https://www.linkedin.com/in/dinu2854i/" target="_blank">LinkedIn</a>
+      <a href="https://github.com/dinu2854i" target="_blank">GitHub</a>
+      <a href="mailto:ydinu2854i@gmail.com">Email</a>
+      <a href="tel:+917995775924">Phone</a>
+     </div>
+        <div class="footer-contact">
+            <p>&copy; 2025 Dinu Portfolio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function showDetails(projectId) {
+            const allDetails = document.querySelectorAll('.project-details');
+            allDetails.forEach(detail => detail.classList.remove('active'));
+
+            const selectedDetail = document.getElementById(projectId);
+            if (selectedDetail) {
+                selectedDetail.classList.add('active');
+                selectedDetail.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+         document.addEventListener("DOMContentLoaded", () => {
+      document.body.dataset.theme = localStorage.getItem("theme") || "light";
+    });
+    </script>
+</body>
+</html>

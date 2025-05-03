@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Education - Dinu Portfolio</title>
+  <style>
+    :root {
+      --bg-color: #fff;
+      --text-color: #000;
+      --primary-color: #007bff;
+      --secondary-color: #f1f1f1;
+      --accent-color: #ff79c6;
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #121212;
+      --text-color: #fff;
+      --primary-color: #1e90ff;
+      --secondary-color: #333;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: all 0.3s ease;
+    }
+
+     header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+      color: var(--bg-color);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .header-title {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--bg-color);
+      font-weight: bold;
+      font-size: 1rem;
+      background-color: var(--primary-color);
+      padding: 10px 15px;
+      border-radius: 5px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    nav a:hover {
+      background-color: var(--accent-color);
+      transform: scale(1.1);
+    }
+
+    .typing-title {
+      text-align: center;
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin: 40px 20px 20px;
+    }
+
+    .typing-title span {
+      white-space: nowrap;
+      overflow: hidden;
+      display: inline-block;
+      animation: typing 3s steps(40, end), blink 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    section {
+      padding: 40px 20px;
+      background-color: var(--secondary-color);
+    }
+
+    .timeline {
+      position: relative;
+      margin: 50px auto;
+      padding: 0;
+      max-width: 900px;
+      list-style: none;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 20px;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: var(--primary-color);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-left: 50px;
+      margin-bottom: 40px;
+      background: var(--secondary-color);
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -30px;
+      top: 20px;
+      width: 15px;
+      height: 15px;
+      background: var(--accent-color);
+      border: 2px solid var(--primary-color);
+      border-radius: 50%;
+    }
+
+    .timeline-item h3 {
+      margin: 0 0 10px;
+      color: var(--primary-color);
+    }
+
+    .timeline-item p {
+      font-size: 0.95rem;
+      margin: 6px 0;
+    }
+
+  
+    footer {
+        background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+        text-align: center;
+        padding: 20px;
+        margin-top: 40px;
+        transition: color 0.3s ease;
+    }
+
+    .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .footer-links a {
+        color: var(--footer-text-color); /* Dynamic footer text color */
+        font-size: 1.2rem;
+        text-decoration: none;
+        transition: 0.3s ease;
+    }
+
+    .footer-links a:hover {
+        transform: scale(1.1);
+        color: var(--accent-color);
+    }
+
+    .footer-contact {
+        font-size: 0.9rem;
+        margin-top: 10px;
+        color: var(--footer-text-color); /* Dynamic footer text color */
+    }
+
+    /* Light Theme */
+    :root {
+        --footer-text-color: #ffffff; /* White text for light theme */
+    }
+
+    /* Dark Theme */
+    [data-theme="dark"] {
+        --footer-text-color: #000000; /* Black text for dark theme */
+    }
+  </style>
+</head>
+<body data-theme="light">
+  <header>
+    <div class="header-title">Dinu's Portfolio</div>
+    <nav>
+      <a href="/">Home</a>
+    </nav>
+  </header>
+
+  <h1 class="typing-title"><span>📘 My Education</span></h1>
+<ul class="timeline">
+
+      <li class="timeline-item" data-aos="fade-up" data-aos-delay="400">
+    <h3>📒 Python Full Stack – JSpiders</h3>
+    <p><strong>Year:</strong> 2024–2025</p>
+    <p><strong>Focus Area:</strong> Backend Development 🛠️</p>
+    <p><strong>Project:</strong> E-commerce app with React & Django 💻</p>
+    <p><strong>Highlights:</strong> Deployment, CI/CD, full-stack mastery</p>
+  </li>
+   
+  <li class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+    <h3>📕 MCA – VSU PG College, Kavali</h3>
+    <p><strong>Year:</strong> 2022–2024</p>
+    <p><strong>Favorite Subjects:</strong> DAA, DBMS</p>
+    <p><strong>Project:</strong> Workforce Aggregator</p>
+    <p><strong>Bonus:</strong> Learned Django, APIs, deployment 🚀</p>
+    <p><strong>Challenges Faced:</strong> Managed projects  and academic deadlines simultaneously 📈</p>
+    <p><strong>GPA:</strong> 7.4</p>
+  </li>
+
+  <li class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+    <h3>📙 B.Sc (statistics) – BSR Degree College, Tirupati</h3>
+    <p><strong>Year:</strong> 2019–2022</p>
+    <p><strong>Favorite Subjects:</strong> computers</p>
+    <p><strong>Project:</strong> Helping Hands </p>
+    <p><strong>Challenges Faced:</strong> Studied through pandemic lockdowns & online classes 📚</p>
+    <p><strong>Skills Gained:</strong> Git, GitHub, frontend tools</p>
+    <p><strong>GPA:</strong> 8.10</p>
+  </li>
+
+   <li class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+    <h3>📗 Intermediate (MPC) – Sri Chaitanya Junior College, Vijayawada</h3>
+    <p><strong>Year:</strong> 2017–2019</p>
+    <p><strong>Favorite Subjects:</strong> Physics & Maths ⚛️</p>
+    <p><strong>Beyond the Classroom:</strong> Watched tutorials on HTML, CSS</p>
+    <p><strong>GPA:</strong> 6.57</p>
+  </li>
+    <li class="timeline-item" data-aos="fade-up">
+    <h3>📘 10th Class – Sri Chaitanya Techno School, Anantapur</h3>
+    <p><strong>Year:</strong> 2016–2017</p>
+    <p><strong>Favorite Subject:</strong> Mathematics 🧮</p>
+    <p><strong>Breakthrough:</strong> Solving puzzles sparked logical thinking.</p>
+    <p><strong>Challenge:</strong> No computer classes — learned in a café.</p>
+    <p><strong>Beyond the Syllabus:</strong> Created a digital signature and became curious about computers 🖥️</p>
+    <p><strong>GPA:</strong> 8.8</p>
+  </li>
+</ul>
+
+  <footer class="footer">
+        <div class="footer-links">
+      <a href="https://www.linkedin.com/in/dinu2854i/" target="_blank">LinkedIn</a>
+      <a href="https://github.com/dinu2854i" target="_blank">GitHub</a>
+      <a href="mailto:ydinu2854i@gmail.com">Email</a>
+      <a href="tel:+917995775924">Phone</a>
+    </div>
+        <div class="footer-contact">
+            <p>&copy; 2025 Dinu Portfolio. All rights reserved.</p>
+        </div>
+    </footer>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1200, once: true });
+    document.addEventListener("DOMContentLoaded", () => {
+      const savedTheme = localStorage.getItem("theme") || "light";
+      document.body.dataset.theme = savedTheme;
+    });
+  </script>
+</body>
+</html>

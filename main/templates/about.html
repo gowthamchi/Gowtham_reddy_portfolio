@@ -1,0 +1,313 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About - Dinu Portfolio</title>
+  <style>
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #000000;
+      --primary-color: #007bff;
+      --secondary-color: #f8f9fa;
+      --accent-color: #ff79c6;
+      --font-family: Arial, sans-serif;
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #121212;
+      --text-color: #ffffff;
+      --primary-color: #1e90ff;
+      --secondary-color: #333333;
+      --accent-color: #ff79c6;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: var(--font-family);
+      margin: 0;
+      padding: 0;
+      font-size: 16px;
+      line-height: 1.6;
+      transition: background 0.3s, color 0.3s;
+    }
+ header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+      color: var(--bg-color);
+    }
+
+    .header-title {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--bg-color);
+      font-size: 1rem;
+      background-color: var(--primary-color);
+      padding: 10px 15px;
+      border-radius: 5px;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    nav a:hover {
+      background-color: var(--accent-color);
+      transform: scale(1.1);
+    }
+
+    .typing-title {
+      text-align: center;
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin: 30px 0 20px;
+    }
+
+    .typing-title span {
+      white-space: nowrap;
+      overflow: hidden;
+      display: inline-block;
+      animation: typing 4s steps(40, end), blink 0.75s step-end infinite;
+    }
+
+    @keyframes typing { from { width: 0; } to { width: 100%; } }
+    @keyframes blink { 50% { border-color: transparent; } }
+
+    .about-section {
+      padding: 50px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .about-content p {
+      margin-bottom: 20px;
+    }
+
+    .timeline {
+      list-style: none;
+      padding: 0;
+    }
+
+    .timeline li {
+      margin-bottom: 10px;
+    }
+
+    .skills, .soft-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .skills span, .soft-skills li {
+      background-color: var(--secondary-color);
+      color: var(--text-color);
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 0.9rem;
+    }
+
+    .about-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .btn-link {
+      text-decoration: none;
+      color: var(--bg-color);
+      background-color: var(--primary-color);
+      padding: 10px 15px;
+      border-radius: 5px;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .btn-link:hover {
+      background-color: var(--accent-color);
+      transform: scale(1.1);
+    }
+ .career-objective {
+  padding: 20px;
+  border-left: 5px solid var(--primary-color);
+  border-radius: 10px;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  color: var(--text-color);
+}
+
+    .motto {
+  font-style: italic;
+  font-size: 18px;
+  margin: 30px 0;
+  padding: 15px 20px;
+  background-color: var(--secondary-color);
+  border-left: 5px solid var(--accent-color);
+  border-radius: 10px;
+  color: var(--text-color);
+}
+.certifications {
+  list-style-type: square;
+  padding-left: 20px;
+  color: var(--text-color);
+  margin-bottom: 30px;
+}
+
+.certifications li {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+    footer {
+      background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+      color: var(--bg-color);
+      text-align: center;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+     footer {
+      background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+      color: var(--bg-color);
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .footer-links a {
+      color: var(--bg-color);
+      font-size: 1.2rem;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      transform: scale(1.1);
+      color: var(--accent-color);
+    }
+
+    .footer-contact {
+      font-size: 0.9rem;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .typing-title { font-size: 30px; }
+      .header-title { font-size: 1.5rem; }
+    }
+
+  </style>
+</head>
+<body>
+   <header>
+    <div class="header-title">Dinu's Portfolio</div>
+    <nav><a href="/">Home</a></nav>
+  </header>
+
+  <h1 class="typing-title" data-aos="fade-down"><span>About Me ✨</span></h1>
+  <section class="about-section">
+    <div class="about-content">
+
+      <div class="career-objective">
+        <h2>🎯 Career Objective</h2>
+        <p>
+          Enthusiastic and detail-oriented Python Developer with hands-on experience in Django, REST APIs, and MySQL. Passionate about building scalable, high-performance web applications and contributing to collaborative, innovative development teams.   </p>
+      </div>
+    <h2>📍 Personal Introduction</h2>
+    <p>
+      I'm <strong>Dinesh Kumar Reddy Y (aka Dinu)</strong>, a Full Stack Developer from Kadiri, currently based in Hyderabad. 
+      I’m pursuing my MCA from Vikrama Simhapuri University and specialize in 
+      <strong>Python, Django, REST APIs, and MySQL</strong>. 
+      I enjoy turning ideas into web applications that create real-world impact.
+    </p>
+
+      <h3>🎓 Education</h3>
+      <ul class="timeline">
+        <li>2022–2024 — VSU PG College, Kavali (MCA, CGPA 7.4)</li>
+        <li>2019–2022 — BSR Degree College, Tirupati (B.Sc. Computer Science, CGPA 8.10)</li>
+        <li>2017–2019 — Sri Chaitanya Junior College, Vijawada (Intermediate, CGPA 6.57)</li>
+        <li>2016–2017 — Sri Chaitanya Techno School, Anantapur (10th Standard, CGPA 8.8)</li>
+      </ul>
+
+      <h3>🛠️ Technical Skills</h3>
+      <div class="skills">
+        <span>Python</span><span>Django</span><span>REST API</span><span>MySQL</span><span>HTML</span><span>CSS</span><span>JavaScript</span><span>React.js</span><span>Git</span><span>VS Code</span>
+      </div>
+
+      <h3>💡 Soft Skills</h3>
+      <div class="skills">
+        <span>✅ Teamwork</span><span>⏰ Time Management</span><span>⚡ Problem Solving</span><span>💬 Communication</span><span>🧠 Accountability</span>
+      </div>
+      <h3>📜 Certifications</h3>
+  <ul class="certifications">
+  <li>Python Full Stack Developer – J Spiders</li>
+  <li>Inventory Management System – NPTEL</li>
+  <li>Communication Skills – Tech Mahindra</li>
+  <li>Team Management – VS University College</li>
+  </ul>
+
+      <h3>🗣️ Languages Known</h3>
+    <ul>
+      <li>✅ English (Fluent)</li>
+      <li>✅ Telugu (Native)</li>
+      <li>✅ Hindi (Intermediate)</li>
+    </ul>
+
+    <h3>🎯 Career Interests</h3>
+    <ul>
+      <li>✅ Full Stack Development</li>
+      <li>✅ Backend/API Development</li>
+      <li>✅ DevOps & Cloud Integration</li>
+      <li>✅ AI-integrated Web Applications</li>
+    </ul>
+      <h3>🎯 Personal Interests</h3>
+      <p>I enjoy <strong>reading books 📚</strong>,<strong>Watching movies 🎬</strong> playing <strong>chess ♟️</strong>, and <strong>cricket 🏏</strong>. These keep my mind fresh and help me stay sharp outside the world of code.</p>
+     
+      <blockquote class="motto">"Code is like humor. When you have to explain it, it’s bad." – Cory House</blockquote>
+
+      <h3>🔗 Quick Links</h3>
+      <div class="about-links">
+        <a href="/projects" class="btn-link">🚀 View My Projects</a>
+        <a href="/resume" class="btn-link">📄 Resume</a>
+         <a href="/static/portfolio/Dinesh_Kumar_Reddy_Portfolio.pdf" download class="btn-link" >
+  📄 Download Portfolio (PDF)
+</a>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/dinu2854i/" target="_blank">LinkedIn</a>
+      <a href="https://github.com/dinu2854i" target="_blank">GitHub</a>
+      <a href="mailto:ydinu2854i@gmail.com">Email</a>
+      <a href="tel:+917995775924">Phone</a>
+    </div>
+    <div class="footer-contact">
+      <p>&copy; 2025 Dinu Portfolio. All rights reserved.</p>
+    </div>
+  </footer>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.body.dataset.theme = localStorage.getItem("theme") || "light";
+    });
+  </script>
+</body>
+</html>
