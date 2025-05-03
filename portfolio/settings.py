@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+from django.contrib.messages import constants as messages
 from dotenv import load_dotenv
 load_dotenv() 
 
@@ -14,6 +15,8 @@ ALLOWED_HOSTS = ['*']
 # INSTALLED APPS (Including all necessary apps)
 INSTALLED_APPS = [  
     'django.contrib.staticfiles',# Required for serving static files
+    'django.contrib.messages',
+    'django.contrib.sessions',
     'main',  # Main portfolio app
 ]
 
@@ -24,8 +27,8 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    #'django.contrib.sessions.middleware.SessionMiddleware',
-    #"django.contrib.messages.middleware.MessageMiddleware",
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    "django.contrib.messages.middleware.MessageMiddleware",
 ]
 
 
@@ -93,3 +96,15 @@ EMAIL_USE_SSL = True
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')    # ✅ App password (not your Gmail login!)
 ALLOWED_HOSTS = ['dinesh-portfolio-hjg3.onrender.com', 'localhost', '127.0.0.1']
+
+
+
+MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
+
+MESSAGE_TAGS = {
+    messages.DEBUG: 'debug',
+    messages.INFO: 'info',
+    messages.SUCCESS: 'success',
+    messages.WARNING: 'warning',
+    messages.ERROR: 'danger',  # Use 'danger' if you're using Bootstrap for red alerts
+}

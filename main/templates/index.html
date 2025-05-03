@@ -46,37 +46,6 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
-    .typing-title {
-    text-align: center;
-    font-size: 42px;
-    font-weight: 700;
-    color: #007bff;
-    margin-bottom: 20px;
-    height: auto; /* Adjust height to fit content */
-    word-wrap: break-word; /* Ensure text wraps properly */
-  }
-
-  
-
-  .typing-title span {
-  display: inline-block;
-  font-size: 6vw; /* Scales with screen size */
-  line-height: 1.2;
-  max-width: 100%;
-}
-
-@media (min-width: 768px) {
-  .typing-title span {
-    font-size: 2.5rem; /* Bigger on tablets and desktops */
-  }
-}
-
-  .wave {
-  display: inline;
-  white-space: nowrap;
-}
-
-
     .theme-toggle {
       padding: 10px 15px;
       background: var(--text-color);
@@ -124,21 +93,27 @@
       z-index: 1000;
     }
 
-    .nav-category:hover .subcategories {
-      display: flex;
+    .nav-category.open .subcategories {
+      display: flex !important;
     }
 
     .subcategories a {
       padding: 10px 15px;
       text-decoration: none;
       color: inherit;
-      transition: 0.3s;
+      transition: background 0.3s, color 0.3s;
       white-space: nowrap;
     }
 
-    .subcategories a:hover {
-      background: var(--primary-color);
-      color: #fff;
+    @media (hover: hover) and (pointer: fine) {
+      .subcategories a:hover {
+        background: var(--primary-color);
+        color: #fff;
+      }
+
+      .nav-category:hover .subcategories {
+        display: flex;
+      }
     }
 
     .hero-section {
@@ -160,7 +135,7 @@
     }
 
     .hero-content .cta {
-      margin-top: 25px;
+      margin: 10px;
       display: inline-block;
       padding: 12px 25px;
       font-weight: bold;
@@ -200,6 +175,33 @@
     .footer-links a:hover {
       transform: scale(1.1);
       color: var(--accent-color);
+    }
+
+    .typing-title {
+      text-align: center;
+      font-size: 42px;
+      font-weight: 700;
+      color: #007bff;
+      margin-bottom: 20px;
+      word-wrap: break-word;
+    }
+
+    .typing-title span {
+      display: inline-block;
+      font-size: 6vw;
+      line-height: 1.2;
+      max-width: 100%;
+    }
+
+    @media (min-width: 768px) {
+      .typing-title span {
+        font-size: 2.5rem;
+      }
+    }
+
+    .wave {
+      display: inline;
+      white-space: nowrap;
     }
 
     @media (max-width: 768px) {
@@ -260,30 +262,29 @@
       </div>
     </div>
   </nav>
-  <section class="hero-section">
-  <div class="hero-content">
-    <h1 class="typing-title">
-      <span>Hi, I'm <i>Dinesh Kumar</i> <span class="wave">👋</span></span>
-</h1>
-    </h1>
-    <p>
-      <strong><i>🚀 Python Full Stack Developer | MCA Graduate | Experienced in Python, Django, JavaScript, and MySQL | Passionate about building scalable web apps and solving real-world problems through clean code.</i></strong>
-    </p>
-    <p>
-      <strong><i>I’m also open to freelance opportunities — if you need a reliable developer for your next project, let’s connect!</i></strong>
-    </p>
-  <div class="summary-container">
-    <h2>Profile Summary</h2>
-    <p>
-      Passionate Python Developer with expertise in <strong>Django</strong>, <strong>REST APIs</strong>, and <strong>MySQL</strong>. Skilled in designing scalable web applications, managing databases, and integrating backend systems with front-end UIs.
-      As an <strong>MCA graduate</strong>, I thrive in collaborative environments and continually seek to grow through hands-on projects and innovation. I also work as a <strong>freelancer</strong>, delivering high-quality solutions tailored to client needs.
-    </p>
-  </div>
-      <a href="projects" class="cta">Explore My Projects</a> 
-      <a href="/static/portfolio/Dinesh_Kumar_Reddy_Portfolio.pdf" download target="_blank" class="cta">
-  📄 Download Portfolio (PDF)
-</a>
 
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1 class="typing-title">
+        <span>Hi, I'm <i>Dinesh Kumar</i> <span class="wave">👋</span></span>
+      </h1>
+      <p>
+        <strong><i>🚀 Python Full Stack Developer | MCA Graduate | Experienced in Python, Django, JavaScript, and MySQL | Passionate about building scalable web apps and solving real-world problems.</i></strong>
+      </p>
+      <p>
+        <strong><i>I’m also open to freelance opportunities — if you need a reliable developer for your next project, let’s connect!</i></strong>
+      </p>
+      <div class="summary-container">
+        <h2>Profile Summary</h2>
+        <p>
+          Passionate Python Developer with expertise in <strong>Django</strong>, <strong>REST APIs</strong>, and <strong>MySQL</strong>. Skilled in designing scalable web applications, managing databases, and integrating backend systems with front-end UIs.
+          As an <strong>MCA graduate</strong>, I thrive in collaborative environments and continually seek to grow through hands-on projects and innovation. I also work as a <strong>freelancer</strong>, delivering high-quality solutions tailored to client needs.
+        </p>
+      </div>
+      <a href="projects" class="cta">Explore My Projects</a>
+      <a href="/static/portfolio/Dinesh_Kumar_Reddy_Portfolio.pdf" download target="_blank" class="cta">
+        📄 Download Portfolio (PDF)
+      </a>
     </div>
   </section>
 
@@ -311,10 +312,18 @@
       // Load saved theme
       const savedTheme = localStorage.getItem("theme") || "light";
       body.dataset.theme = savedTheme;
+
+      // Toggle submenus on mobile
+      const navCategories = document.querySelectorAll(".nav-category");
+      navCategories.forEach(category => {
+        category.addEventListener("click", () => {
+          navCategories.forEach(other => {
+            if (other !== category) other.classList.remove("open");
+          });
+          category.classList.toggle("open");
+        });
+      });
     });
-    </script>
-
-
-
+  </script>
 </body>
 </html>

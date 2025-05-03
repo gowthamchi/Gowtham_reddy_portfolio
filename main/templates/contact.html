@@ -287,6 +287,9 @@
         </form>
 
         <!-- WhatsApp Form -->
+        
+  <div class="alert alert-success">✅ Redirecting to WhatsApp...</div>
+  
         <form id="whatsappForm" class="contact-form hidden" action="{% url 'contact' %}" method="post" target="_blank">
           {% csrf_token %}
           <input type="hidden" name="method" value="whatsapp" />
@@ -294,6 +297,7 @@
           <input type="email" name="email" placeholder="Your Email" required />
           <textarea name="question" rows="5" placeholder="Your Message" required></textarea>
           <button type="submit">Send WhatsApp</button>
+          
         </form>
 
       </div>
@@ -358,6 +362,13 @@
       });
     }, 4000);
   });
+  setTimeout(() => {
+  document.querySelectorAll(".flash-message").forEach((el) => {
+    el.style.display = "none";
+  });
+}, 5000);
+
+
 </script>
 </body>
 </html>

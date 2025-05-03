@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.http import JsonResponse,HttpResponseRedirect
 from django.contrib import messages
 from urllib.parse import quote
+from django.utils.http import urlencode
 import requests
 from django.core.mail import send_mail,BadHeaderError,EmailMessage
 
@@ -15,13 +16,18 @@ def contact(request):
 
         if method == "email":
             full_message = f"Name: {name}\nEmail: {email}\n\nQuestion:\n{message}"
-            send_mail(
+            try :
+                send_mail(
                     subject=subject,
                     message=full_message,
                     from_email=email,
                     recipient_list=['ydinu2854i@gmail.com'],
                     fail_silently=False,
                 )
+                messages.success(request, "✅ Your message was sent successfully!")
+            except Exception as e:
+                print("Email error:", e)
+                messages.error(request, "❌ Something went wrong. Please try again.")
             return redirect('contact')
 
         elif method == "whatsapp":
@@ -91,11 +97,10 @@ def faq(request):
                     recipient_list=['ydinu2854i@gmail.com'],
                     fail_silently=False,
                 )
-                messages.success(request, "✅ Your faq question was sent via Email successfully!")
-            except BadHeaderError:
-                messages.error(request, "❌ Invalid email header found.")
+                messages.success(request, "✅ Your message was sent successfully!")
             except Exception as e:
-                messages.error(request, f"❌ Could not send email. Error: {e}")
+                print("Email error:", e)
+                messages.error(request, "❌ Something went wrong. Please try again.")
             return redirect('faq')
 
         elif method == "whatsapp":

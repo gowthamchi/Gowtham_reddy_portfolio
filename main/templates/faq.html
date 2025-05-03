@@ -292,6 +292,12 @@
       const theme = localStorage.getItem("theme") || "light";
       document.body.dataset.theme = theme;
     });
+    setTimeout(() => {
+  document.querySelectorAll(".flash-message").forEach((el) => {
+    el.style.display = "none";
+  });
+}, 5000);
+
   </script>
 </body>
 </html>
