@@ -30,13 +30,11 @@
     }
 
     header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px;
-      background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
-      color: var(--bg-color);
-    }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
 
     .header-title {
       font-size: 2rem;
@@ -44,20 +42,16 @@
     }
 
     nav a {
-      text-decoration: none;
-      color: var(--bg-color);
-      font-size: 1rem;
-      background-color: var(--primary-color);
-      padding: 10px 15px;
-      border-radius: 5px;
-      transition: background 0.3s, transform 0.3s;
+        text-decoration: none;
+        font-size: 1rem;
+        padding: 10px 15px;
+        transition: color 0.3s, transform 0.3s;
+        color: var(--text-color); /* White in dark theme, black in light theme */
     }
-
     nav a:hover {
-      background-color: var(--accent-color);
-      transform: scale(1.1);
+        color: var(--accent-color); /* Change color on hover */
+        transform: scale(1.1); /* Slight zoom effect */
     }
-
     .typing-title {
       text-align: center;
       font-size: 42px;
@@ -162,26 +156,22 @@
     }
 
     footer {
-      background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
-      color: var(--bg-color);
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-    }
+            text-align: center;
+            padding: 5px;
+            margin-top: 5px;
+        }
 
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-    }
+   .footer-links a {
+    color: var(--text-color); /* White in light theme, black in dark theme */
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: 0.3s ease;
+  }
 
-    .footer-links a {
-      color: var(--bg-color);
-      font-size: 1.2rem;
-      text-decoration: none;
-      transition: 0.3s ease;
-    }
+  .footer-links a:hover {
+    transform: scale(1.1);
+    color: var(--accent-color);
+  }
 
     .footer-links a:hover {
       transform: scale(1.1);
@@ -200,12 +190,12 @@
   </style>
 </head>
 <body data-theme="light">
-  <header>
-    <div class="header-title">Dinesh Reddy Portfolio</div>
-    <nav><a href="/">Home</a></nav>
-  </header>
+ <header style="position: sticky; top: 0; z-index: 1000; background: var(--bg-color); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+  <div class="header-title">Dinesh Reddy Portfolio</div>
+  <nav><a href="/">Home</a></nav>
+</header>
 
-  <h1 class="typing-title" data-aos="fade-down"><span>❓ Frequently Asked Questions</span></h1>
+  <h1 class="typing-title" data-aos="fade-down"><span> Frequently Asked ❓</span></h1>
 
   <section class="faq-section">
     <div class="faq-container" data-aos="fade-up">
@@ -252,13 +242,27 @@
     <input type="email" name="email" placeholder="Your Email" required style="width:100%; margin: 10px 0; padding:10px;" />
     <textarea name="question" placeholder="Your Question" required rows="4" style="width:100%; margin: 10px 0; padding:10px;"></textarea>
 
-    <div style="margin: 10px 0;">
-      <label><input type="radio" name="method" value="email" required /> Send via Email</label><br>
-      <label><input type="radio" name="method" value="whatsapp" required /> Send via WhatsApp</label>
-    </div>
-
-    <button type="submit" style="padding: 10px 20px; background: var(--primary-color); color: white; border: none; border-radius: 5px;">Send Question</button>
+<div style="margin: 10px 0; display: flex; gap: 20px; justify-content: center;">
+  <div style="text-align: center; cursor: pointer;">
+    <input type="radio" id="email" name="method" value="email" required style="display: none;" />
+    <label for="email" id="email-label" style="display: block; padding: 15px; border: 2px solid var(--primary-color); border-radius: 10px; background: var(--secondary-color); color: var(--primary-color); font-weight: bold; transition: transform 0.3s, background 0.3s;">
+      📧 Send via Email
+    </label>
   </div>
+  <div style="text-align: center; cursor: pointer;">
+    <input type="radio" id="whatsapp" name="method" value="whatsapp" required style="display: none;" />
+    <label for="whatsapp" id="whatsapp-label" style="display: block; padding: 15px; border: 2px solid var(--primary-color); border-radius: 10px; background: var(--secondary-color); color: var(--primary-color); font-weight: bold; transition: transform 0.3s, background 0.3s;">
+      📱 Send via WhatsApp
+    </label>
+  </div>
+</div>
+
+<div style="text-align: center; margin-top: 20px;">
+  <button type="submit" id="send-question" style="padding: 15px 30px; border: 2px solid var(--primary-color); border-radius: 10px; background: var(--secondary-color); color: var(--primary-color); font-weight: bold; transition: transform 0.3s, background 0.3s;">
+    🚀 Send Question
+  </button>
+</div>
+
 </form>
 
       </div>
@@ -266,6 +270,7 @@
   </section>
 
   <footer>
+    <hr style="border: none; border-top: 2px solid var(--text-color); margin: 40px 0;">
     <div class="footer-links">
        <a href="https://www.linkedin.com/in/dinu2854i/" target="_blank">LinkedIn</a>
       <a href="https://github.com/dinu2854i" target="_blank">GitHub</a>
@@ -279,6 +284,36 @@
 
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
+    // Highlight the selected option in green
+  document.querySelectorAll('input[name="method"]').forEach((radio) => {
+    radio.addEventListener('change', () => {
+      const emailLabel = document.getElementById('email-label');
+      const whatsappLabel = document.getElementById('whatsapp-label');
+
+      if (radio.id === 'email') {
+        emailLabel.style.background = 'green';
+        emailLabel.style.color = 'white';
+        whatsappLabel.style.background = 'var(--secondary-color)';
+        whatsappLabel.style.color = 'var(--primary-color)';
+      } else if (radio.id === 'whatsapp') {
+        whatsappLabel.style.background = 'green';
+        whatsappLabel.style.color = 'white';
+        emailLabel.style.background = 'var(--secondary-color)';
+        emailLabel.style.color = 'var(--primary-color)';
+      }
+    });
+  });
+
+  // Add hover effect for the "Send Question" button
+  const sendButton = document.getElementById('send-question');
+  sendButton.addEventListener('mouseover', () => {
+    sendButton.style.background = 'var(--primary-color)';
+    sendButton.style.color = 'white';
+  });
+  sendButton.addEventListener('mouseout', () => {
+    sendButton.style.background = 'var(--secondary-color)';
+    sendButton.style.color = 'var(--primary-color)';
+  });
     AOS.init({ duration: 1000 });
 
     document.querySelectorAll('.faq-question').forEach(btn => {

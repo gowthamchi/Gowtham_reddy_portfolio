@@ -33,34 +33,29 @@
         }
 
         header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
-            color: var(--bg-color);
-        }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
 
         .header-title {
             font-size: 2rem;
             font-weight: bold;
         }
 
-        nav a {
-            text-decoration: none;
-            color: var(--bg-color);
-            font-size: 1rem;
-            background-color: var(--primary-color);
-            padding: 10px 15px;
-            border-radius: 5px;
-            transition: background 0.3s, transform 0.3s;
-        }
+     nav a {
+        text-decoration: none;
+        font-size: 1rem;
+        padding: 10px 15px;
+        transition: color 0.3s, transform 0.3s;
+        color: var(--text-color); /* White in dark theme, black in light theme */
+    }
 
-        nav a:hover {
-            background-color: var(--accent-color);
-            transform: scale(1.1);
-        }
-
+    nav a:hover {
+        color: var(--accent-color); /* Change color on hover */
+        transform: scale(1.1); /* Slight zoom effect */
+    }
         .typing-title {
             text-align: center;
             font-size: 42px;
@@ -313,11 +308,9 @@
 }
 
         footer {
-            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
-            color: var(--bg-color);
             text-align: center;
-            padding: 20px;
-            margin-top: 40px;
+            padding: 5px;
+            margin-top: 5px;
         }
 
         .footer-links {
@@ -327,17 +320,17 @@
             gap: 15px;
         }
 
-        .footer-links a {
-            color: var(--bg-color);
-            font-size: 1.2rem;
-            text-decoration: none;
-            transition: 0.3s ease;
-        }
+    .footer-links a {
+    color: var(--text-color); /* White in light theme, black in dark theme */
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: 0.3s ease;
+  }
 
-        .footer-links a:hover {
-            transform: scale(1.1);
-            color: var(--accent-color);
-        }
+  .footer-links a:hover {
+    transform: scale(1.1);
+    color: var(--accent-color);
+  }
 
         .footer-contact {
             font-size: 0.9rem;
@@ -346,10 +339,10 @@
     </style>
 </head>
 <body>
-    <header>
-    <div class="header-title">Dinesh Reddy Portfolio</div>
-    <nav><a href="/">Home</a></nav>
-  </header> 
+   <header style="position: sticky; top: 0; z-index: 1000; background: var(--bg-color); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+  <div class="header-title">Dinesh Reddy Portfolio</div>
+  <nav><a href="/">Home</a></nav>
+</header>
     <section>
         <div class="projects-container">
             <h1 class="typing-title"><span>📂 My Projects</span></h1>
@@ -361,22 +354,25 @@
     <div class="project-card" data-bg="workforce" onclick="showDetails('workforce')">
       <h2>Workforce Aggregator</h2>
       <p>A real-time Django-based platform connecting users with skilled workers efficiently.</p>
+      <p class="card-hint">Tap to view more ↓</p>
     </div>
     <div class="project-card" data-bg="helping-hands" onclick="showDetails('helping-hands')">
       <h2>Helping Hands</h2>
       <p>A donation-based platform supporting orphanages by addressing their real-time needs.</p>
+      <p class="card-hint">Tap to view more ↓</p>
     </div>
     <div class="project-card" data-bg="portfolio" onclick="showDetails('portfolio')">
       <h2>Developer Portfolio</h2>
       <p>A personal project portal showcasing achievements, skills, and real-world applications.</p>
+      <p class="card-hint">Tap to view more ↓</p>
     </div>
     <div class="project-card" data-bg="ticket-exchange" onclick="showDetails('ticket-exchange')">
       <h2>Ticket Exchange</h2>
       <p>A platform to sell or exchange expiring event/travel tickets with ease and security.</p>
+     <p class="card-hint">Tap to view more ↓</p>
     </div>
   </div>
 </section>
-
 <section class="projects-detailed">
 <div id="workforce" class="project-details" data-bg="workforce">
   <div class="project-box highlight">
@@ -391,7 +387,7 @@
   <strong>Description</strong>
 <p>  The Workforce Aggregator is a full-stack Django application designed to simplify the process of hiring skilled workers for various tasks. Inspired by the common problem of manually finding reliable laborers or freelancers in local areas, this platform enables users to discover and connect with verified workers in real-time. I led the project as the Innovator and Lead Developer, ensuring the user interface was intuitive and responsive. The system includes secure user registration, dynamic search filters, and real-time availability indicators to streamline hiring decisions.</p>
 <p> The platform also supports worker-to-user interactions through a secure messaging module and booking confirmations. Admin tools were developed for data management and moderation. This project showcases my strengths in backend design, REST API integration, and team coordination, while also demonstrating my commitment to solving practical, real-world challenges through technology.</p>
-  <a class="github-link" href="https://github.com/dinu/workforce-aggregator" target="_blank">🔗 GitHub Repository</a>
+  <a class="github-link" href="https://github.com/dinu2854i/worker_booking" target="_blank">🔗 GitHub Repository</a>
 </div></div>
 
 <div id="helping-hands" class="project-details" data-bg="helping-hands">
@@ -407,7 +403,7 @@
   <strong>Description:</strong>
 <p>   Helping Hands is a socially driven web platform built to support orphanages by connecting them with donors and volunteers. Developed as a team project, I contributed to the backend and helped implement a clean frontend interface. The goal was to provide a bridge between orphanage homes and the community to increase transparency and support. The platform enables orphanages to register, list their current needs, and receive direct donations through bank account integration, ensuring funds are securely transferred to the right hands.</p>
 <p>   Users can also browse verified orphanage profiles, view reports on their needs, and make informed contributions. This project taught me how to handle sensitive user data securely, validate forms, and manage multi-user roles within a Django ecosystem. It deepened my understanding of ethical development and social impact through code. </p>
-<a class="github-link" href="https://github.com/dinu/helping-hands" target="_blank">🔗 GitHub Repository</a>
+<a class="github-link" href="https://github.com/dinu2854i/helping_hands" target="_blank">🔗 GitHub Repository</a>
  </div>
 </div>
 
@@ -424,7 +420,7 @@
   <strong>Description:</strong>
   <p>   This interactive developer portfolio is more than just a personal website—it’s a dynamic platform that demonstrates my skills, live projects, blog posts, testimonials, and certifications. The portfolio is structured with animated components, dark/light theme support, filtering options, and a backend that manages projects and contact submissions. Designed with both recruiters and collaborators in mind, it allows users to get a quick yet in-depth understanding of my professional journey.</p>
 <p>   The site includes project demos, technology tags, career interests, and a contact section integrated with email and WhatsApp. It also features a unique “Ticket Exchange” card showcasing upcoming launches. This project reflects my passion for clean UI/UX, real-time feedback, and creating scalable web apps. It’s hosted on a live server and continuously updated based on feedback.</p>
-<a class="github-link" href="https://github.com/dinu/developer-portfolio" target="_blank">🔗 GitHub Repository</a>
+<a class="github-link" href="https://github.com/dinu2854i/portfolio" target="_blank">🔗 GitHub Repository</a>
   </div>
 </div>
 
@@ -445,14 +441,13 @@
 </div>
 </div>
 </section>
-
-
     <footer>
+      <hr style="border: none; border-top: 2px solid var(--text-color); margin: 40px 0;">
         <div class="footer-links">
       <a href="https://www.linkedin.com/in/dinu2854i/" target="_blank">LinkedIn</a>
       <a href="https://github.com/dinu2854i" target="_blank">GitHub</a>
-      <a href="mailto:ydinu2854i@gmail.com">Email</a>
-      <a href="tel:+917995775924">Phone</a>
+      <a href="mailto:ydinu2854i@gmail.com"> Email</a>
+      <a href="tel:+917995775924"> Phone</a>
      </div>
         <div class="footer-contact">
             <p>&copy; 2025 Dinesh Reddy Portfolio. All rights reserved.</p>

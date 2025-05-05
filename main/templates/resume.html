@@ -35,16 +35,30 @@
             transition: background 0.3s ease, color 0.3s ease;
         }
 
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
-            color: var(--bg-color-light);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
+ header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--bg-color-light); /* Use --bg-color-light instead of --bg-color */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
+    nav a {
+        text-decoration: none;
+        font-size: 1rem;
+        padding: 10px 15px;
+        transition: color 0.3s, transform 0.3s;
+        color: var(--text-color); /* White in dark theme, black in light theme */
+    }
+
+    nav a:hover {
+        color: var(--accent-color); /* Change color on hover */
+        transform: scale(1.1); /* Slight zoom effect */
+    }
         .header-title {
             font-size: 2rem;
             font-weight: bold;
@@ -65,6 +79,12 @@
             background-color: var(--accent-color);
             transform: scale(1.1);
         }
+        .resume-section {
+    padding: 80px 20px;
+    text-align: center;
+    margin-top: 80px; /* NEW: to avoid header overlap */
+}
+
 
         .typing-title {
             text-align: center;
@@ -149,13 +169,14 @@
         .note a:hover {
             text-decoration: underline;
         }
-    footer {
-        background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
-        text-align: center;
-        padding: 20px;
-        margin-top: 40px;
-        transition: color 0.3s ease;
-    }
+   footer {
+    text-align: center;
+    padding: 20px;
+    background: var(--secondary-color);
+    border-top: 2px solid var(--text-color-light); /* Optional: border on top */
+}
+
+        
 
     .footer-links {
         display: flex;
@@ -164,23 +185,22 @@
         gap: 15px;
     }
 
-    .footer-links a {
-        color: var(--footer-text-color); /* Dynamic footer text color */
-        font-size: 1.2rem;
-        text-decoration: none;
-        transition: 0.3s ease;
-    }
+   .footer-links a {
+    color: var(--text-color); /* White in light theme, black in dark theme */
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: 0.3s ease;
+  }
 
-    .footer-links a:hover {
-        transform: scale(1.1);
-        color: var(--accent-color);
-    }
+  .footer-links a:hover {
+    transform: scale(1.1);
+    color: var(--accent-color);
+  }
 
     .footer-contact {
-        font-size: 0.9rem;
-        margin-top: 10px;
-        color: var(--footer-text-color); /* Dynamic footer text color */
-    }
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
 
     /* Light Theme */
     :root {
@@ -195,30 +215,30 @@
     </style>
 </head>
 <body>
-    <header>
-        <div class="header-title">Dinesh Reddy Portfolio</div>
-        <a href="/" class="home-link">Home</a>
-    </header>
+   <header style="position: sticky; top: 0; z-index: 1000; background: var(--bg-color-light); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+ <div class="header-title">Dinesh Reddy Portfolio</div>
+  <nav><a href="/">Home</a></nav>
+</header>
     
     <section class="resume-section">
-        <div class="resume-container">
-            <h1 class="typing-title" data-aos="fade-up" data-aos-delay="100"><span>📄 My Resume</h1>
-            <iframe src="/static/resume/Dinesh_Resume.pdf" frameborder="0"></iframe>
-           <div class="resume-section-1">
-         <p>If you'd like to know more about my background, education, and projects, feel free to download my resume below.</p>
-         </div>  
-         <div class="download-btn">
-                <a href="/static/resume/Dinesh_Resume.pdf" download class="btn">⬇️ Download Resume (PDF)</a>
-            </div>
-            <p class="note">
-                👉 Looking for my <a href="/projects">Projects</a>, <a href="/certificates">Certificates</a>, or <a href="/contact">Contact Info</a>? Check the navigation bar above.
-            </p>
+    <div class="resume-container">
+        <h1 class="typing-title" data-aos="fade-up" data-aos-delay="100"><span>📄 My Resume</span></h1>
+        <iframe src="/static/resume/Dinesh_Resume.pdf" frameborder="0"></iframe>
+        <div class="resume-section-1">
+            <p>If you'd like to know more about my background, education, and projects, feel free to download my resume below.</p>
+        </div>  
+        <div class="download-btn">
+            <a href="/static/resume/Dinesh_Resume.pdf" download class="btn">⬇️ Download Resume (PDF)</a>
         </div>
+        <p class="note">
+            👉 Your browser does not support viewing PDFs. <a href="/static/resume/Dinesh_Resume.pdf" download>Click here to download the resume.</a>
+        </p>
+    </div>
+</section>
     </section>
-
-    <footer class="footer">
+     <footer class="footer">
         <div class="footer-links">
-            <a href="https://www.linkedin.com/in/dinu2854i/" target="_blank">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/dinu2854i/" target="_blank">LinkedIn</a>
       <a href="https://github.com/dinu2854i" target="_blank">GitHub</a>
       <a href="mailto:ydinu2854i@gmail.com">Email</a>
       <a href="tel:+917995775924">Phone</a>
@@ -230,10 +250,10 @@
 
     <script>
         // Apply saved theme from localStorage
-        document.addEventListener("DOMContentLoaded", () => {
-            const savedTheme = localStorage.getItem("theme") || "light";
-            document.body.dataset.theme = savedTheme;
-        });
+         document.addEventListener("DOMContentLoaded", () => {
+        const savedTheme = localStorage.getItem("theme") || "light";
+        document.body.dataset.theme = savedTheme;
+    });
     </script>
 </body>
 </html>

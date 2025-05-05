@@ -32,33 +32,29 @@
     color: var(--text-color);
     transition: background 0.3s, color 0.3s;
   }
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px;
-      background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
-      color: var(--bg-color);
-    }
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
 
     .header-title {
       font-size: 2rem;
       font-weight: bold;
     }
 
-    nav a {
-      text-decoration: none;
-      background: var(--primary-color);
-      color: var(--bg-color);
-      padding: 10px 15px;
-      border-radius: 6px;
-      font-weight: bold;
-      transition: 0.3s;
+   nav a {
+        text-decoration: none;
+        font-size: 1rem;
+        padding: 10px 15px;
+        transition: color 0.3s, transform 0.3s;
+        color: var(--text-color); /* White in dark theme, black in light theme */
     }
 
     nav a:hover {
-      background: var(--accent-color);
-      transform: scale(1.05);
+        color: var(--accent-color); /* Change color on hover */
+        transform: scale(1.1); /* Slight zoom effect */
     }
 
     h1.typing-title {
@@ -160,27 +156,24 @@
     break-inside: avoid;
   }
 
-    footer {
-      background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
-      color: var(--bg-color);
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-    }
+    
+        footer {
+            text-align: center;
+            padding: 5px;
+            margin-top: 5px;
+        }
 
     .footer-links a {
-      color: var(--bg-color);
-      font-size: 1.2rem;
-      text-decoration: none;
-      transition: 0.3s ease;
-    }
+    color: var(--text-color); /* White in light theme, black in dark theme */
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: 0.3s ease;
+  }
+
+  .footer-links a:hover {
+    transform: scale(1.1);
+    color: var(--accent-color);
+  }
 
     .footer-links a:hover {
       transform: scale(1.1);
@@ -199,10 +192,10 @@
   </style>
 </head>
 <body>
-  <header>
-    <div class="header-title">Dinesh Reddy Portfolio</div>
-    <nav><a href="/">Home</a></nav>
-  </header>
+  <header style="position: sticky; top: 0; z-index: 1000; background: var(--bg-color); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+  <div class="header-title">Dinesh Reddy Portfolio</div>
+  <nav><a href="/">Home</a></nav>
+</header>
 <h1 class="typing-title" data-aos="fade-down"><span>🚀 Career Interests</span></h1>
 <section>
   <div class="interest-grid">
@@ -239,6 +232,7 @@
 
 
   <footer>
+    <hr style="border: none; border-top: 2px solid var(--text-color); margin: 40px 0;">
     <div class="footer-links">
       <a href="https://www.linkedin.com/in/dinu2854i/" target="_blank">LinkedIn</a>
       <a href="https://github.com/dinu2854i" target="_blank">GitHub</a>

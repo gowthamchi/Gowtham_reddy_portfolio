@@ -36,14 +36,20 @@
       transition: all 0.3s ease-in-out;
     }
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px;
-      background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
-      color: var(--bg-color);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  header {
+  position: sticky; /* Makes the header stick to the top */
+  top: 0; /* Sticks the header to the very top of the viewport */
+  z-index: 1001; /* Ensures the header stays above the navbar */
+  background: var(--bg-color);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for better visibility */
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+   .header-title {
+      font-size: 2rem;
+      font-weight: bold;
     }
 
     .theme-toggle {
@@ -62,60 +68,69 @@
       background: var(--accent-color);
       color: var(--bg-color);
     }
+nav.navbar {
+  position: sticky; /* Makes the navbar stick below the header */
+  top: 60px; /* Adjust this value based on the height of the header */
+  z-index: 1000; /* Ensures the navbar stays above other content */
+  display: flex;
+  justify-content: center; /* Centers the navbar items */
+  align-items: center; /* Aligns items vertically */
+  padding: 15px;
+  flex-wrap: nowrap; /* Prevents wrapping to the next line */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for better visibility */
+}
 
-    nav.navbar {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 15px;
-      background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
-      color: var(--bg-color);
-    }
+.nav-category {
+  margin: 0 15px; /* Adds spacing between sections */
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  white-space: nowrap; /* Prevents text from wrapping */
+  position: relative; /* Ensures subcategories are positioned relative to the parent */
+}
 
-    .nav-category {
-      position: relative;
-      margin: 10px 20px;
-      cursor: pointer;
-      font-weight: bold;
-      text-transform: uppercase;
-    }
+.subcategories {
+  display: none; /* Initially hides the subcategories */
+  position: absolute;
+  top: 100%; /* Positions the subcategories below the parent */
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-color);
+  color: var(--text-color);
+  flex-direction: column;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  padding: 10px 0;
+}
 
-    .subcategories {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background: var(--bg-color);
-      color: var(--text-color);
-      flex-direction: column;
-      border-radius: 5px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      z-index: 1000;
-    }
+.nav-category.open .subcategories {
+  display: flex; /* Shows the subcategories when the parent is open */
+}
 
-    .nav-category.open .subcategories {
-      display: flex !important;
-    }
+.subcategories a {
+  padding: 10px 15px;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.3s, color 0.3s;
+  white-space: nowrap;
+}
 
-    .subcategories a {
-      padding: 10px 15px;
-      text-decoration: none;
-      color: inherit;
-      transition: background 0.3s, color 0.3s;
-      white-space: nowrap;
-    }
+.subcategories a:hover {
+  background: var(--primary-color);
+  color: #fff;
+}
 
-    @media (hover: hover) and (pointer: fine) {
-      .subcategories a:hover {
-        background: var(--primary-color);
-        color: #fff;
-      }
+@media (max-width: 768px) {
+  nav.navbar {
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    justify-content: center; /* Keeps items centered */
+  }
 
-      .nav-category:hover .subcategories {
-        display: flex;
-      }
-    }
-
+  .nav-category {
+    margin: 10px; /* Adds spacing for smaller screens */
+  }
+}
     .hero-section {
       padding: 80px 20px;
       text-align: center;
@@ -150,32 +165,35 @@
       background: var(--accent-color);
     }
 
-    footer {
-      background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
-      color: var(--bg-color);
-      text-align: center;
-      padding: 20px;
-    }
+      footer {
+            text-align: center;
+            padding: 5px;
+            margin-top: 5px;
+        }
 
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
-      margin-bottom: 10px;
-    }
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
 
     .footer-links a {
-      color: var(--bg-color);
-      font-size: 1.2rem;
-      text-decoration: none;
-      transition: transform 0.3s;
-    }
+    color: var(--text-color); /* White in light theme, black in dark theme */
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: 0.3s ease;
+  }
 
-    .footer-links a:hover {
-      transform: scale(1.1);
-      color: var(--accent-color);
-    }
+  .footer-links a:hover {
+    transform: scale(1.1);
+    color: var(--accent-color);
+  }
+
+        .footer-contact {
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
 
     .typing-title {
       text-align: center;
@@ -226,12 +244,12 @@
   </style>
 </head>
 <body data-theme="light">
-  <header>
+  <header style="position: sticky; top: 0; z-index: 1000; background: var(--bg-color); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
     <div class="header-title">Dinesh Reddy Portfolio</div>
     <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">Toggle Theme</button>
   </header>
 
-  <nav class="navbar">
+  <nav  class="navbar">
     <div class="nav-category">Profile
       <div class="subcategories">
         <a href="about">About Me</a>
@@ -289,6 +307,7 @@
   </section>
 
   <footer>
+     <hr style="border: none; border-top: 2px solid var(--text-color); margin: 40px 0;">
     <div class="footer-links">
       <a href="https://www.linkedin.com/in/dinu2854i/" target="_blank">LinkedIn</a>
       <a href="https://github.com/dinu2854i" target="_blank">GitHub</a>
@@ -300,30 +319,40 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const toggleBtn = document.getElementById("theme-toggle");
-      const body = document.body;
+  const toggleBtn = document.getElementById("theme-toggle");
+  const body = document.body;
 
-      toggleBtn.addEventListener("click", () => {
-        const isDark = body.dataset.theme === "dark";
-        body.dataset.theme = isDark ? "light" : "dark";
-        localStorage.setItem("theme", body.dataset.theme);
+  // Theme toggle functionality
+  toggleBtn.addEventListener("click", () => {
+    const isDark = body.dataset.theme === "dark";
+    body.dataset.theme = isDark ? "light" : "dark";
+    localStorage.setItem("theme", body.dataset.theme);
+  });
+
+  // Load saved theme
+  const savedTheme = localStorage.getItem("theme") || "light";
+  body.dataset.theme = savedTheme;
+
+  // Submenu toggle functionality
+  const navCategories = document.querySelectorAll(".nav-category");
+
+  navCategories.forEach(category => {
+    category.addEventListener("click", (event) => {
+      event.stopPropagation(); // Prevent click from propagating to the body
+      // Close other open subcategories
+      navCategories.forEach(other => {
+        if (other !== category) other.classList.remove("open");
       });
-
-      // Load saved theme
-      const savedTheme = localStorage.getItem("theme") || "light";
-      body.dataset.theme = savedTheme;
-
-      // Toggle submenus on mobile
-      const navCategories = document.querySelectorAll(".nav-category");
-      navCategories.forEach(category => {
-        category.addEventListener("click", () => {
-          navCategories.forEach(other => {
-            if (other !== category) other.classList.remove("open");
-          });
-          category.classList.toggle("open");
-        });
-      });
+      // Toggle the clicked category
+      category.classList.toggle("open");
     });
+  });
+
+  // Close subcategories when clicking outside
+  document.addEventListener("click", () => {
+    navCategories.forEach(category => category.classList.remove("open"));
+  });
+});
   </script>
 </body>
 </html>
