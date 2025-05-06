@@ -34,74 +34,106 @@
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       line-height: 1.6;
       transition: all 0.3s ease-in-out;
+       padding-top: 80px; /* Adjust this value based on the height of your navbar */
     }
 
-  header {
-  position: sticky; /* Makes the header stick to the top */
-  top: 0; /* Sticks the header to the very top of the viewport */
-  z-index: 1001; /* Ensures the header stays above the navbar */
-  background: var(--bg-color);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for better visibility */
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-   .header-title {
-      font-size: 2rem;
-      font-weight: bold;
-    }
+   header {
+    position: sticky;
+    top: 0;
+    z-index: 1001;
+    background: var(--bg-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px 15px; /* Reduced padding */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-    .theme-toggle {
-      padding: 10px 15px;
-      background: var(--text-color);
-      border: none;
-      border-radius: 5px;
-      font-weight: bold;
-      cursor: pointer;
-      color: var(--bg-color);
-      transition: background 0.3s, color 0.3s, transform 0.3s;
-    }
+  .header-title {
+    font-size: 1.5rem; /* Reduced font size */
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .theme-toggle {
+    padding: 8px 12px; /* Reduced padding */
+    font-size: 0.9rem; /* Adjusted font size */
+  }
 
     .theme-toggle:hover {
       transform: scale(1.05);
       background: var(--accent-color);
       color: var(--bg-color);
     }
+  @media (max-width: 768px) {
 nav.navbar {
-  position: sticky; /* Makes the navbar stick below the header */
+  position: sticky; /* Keeps the navbar at the top */
   top: 60px; /* Adjust this value based on the height of the header */
   z-index: 1000; /* Ensures the navbar stays above other content */
   display: flex;
-  justify-content: center; /* Centers the navbar items */
+  overflow-x: auto;
+  justify-content: flex-start; /* Aligns items to the left */
   align-items: center; /* Aligns items vertically */
-  padding: 15px;
   flex-wrap: nowrap; /* Prevents wrapping to the next line */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for better visibility */
+  overflow: visible; /* Ensures dropdowns are not clipped */
+  padding: 10px 15px;
+  background-color: var(--bg-color); /* Dynamic background based on theme */
+  color: var(--text-color); /* Dynamic text color based on theme */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-overflow-scrolling: touch;
+  white-space: nowrap;
+  scrollbar-width: none; 
+}
+
+nav.navbar::-webkit-scrollbar {
+  display: none; /* Hides scrollbar in WebKit browsers */
 }
 
 .nav-category {
-  margin: 0 15px; /* Adds spacing between sections */
+  margin: 0 10px;
   cursor: pointer;
   font-weight: bold;
   text-transform: uppercase;
-  white-space: nowrap; /* Prevents text from wrapping */
-  position: relative; /* Ensures subcategories are positioned relative to the parent */
+  white-space: nowrap;
+  position: relative;
+  display: flex;
+  align-items: center; /* Aligns text and symbol vertically */
+  font-family: "Arial", sans-serif; /* Custom font style */
+  font-size: 1rem; /* Adjust font size */
+  letter-spacing: 1px; /* Adds spacing between letters */
+  color: var(--text-color); /* Dynamic text color based on theme */
+  transition: color 0.3s ease; /* Smooth transition for text color */
+flex: 0 0 auto;
+    min-width: 150px; /* Adjust if needed */
+    margin-right: 10px;
+}
+  }
+
+.dropdown-symbol {
+  margin-left: 5px; /* Adds spacing between the text and the symbol */
+  font-size: 0.8rem; /* Adjusts the size of the symbol */
+  color: var(--text-color); /* Matches the text color */
+  transition: transform 0.3s ease, color 0.3s ease; /* Adds a smooth rotation effect */
 }
 
+.nav-category.open .dropdown-symbol {
+  transform: rotate(180deg); /* Rotates the symbol when the dropdown is open */
+  color: var(--accent-color); /* Changes symbol color when open */
+}
 .subcategories {
   display: none; /* Initially hides the subcategories */
-  position: absolute;
-  top: 100%; /* Positions the subcategories below the parent */
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--bg-color);
-  color: var(--text-color);
+  position: absolute; /* Positions the dropdown outside the flow of the navbar */
+  top: 100%; /* Positions the dropdown below the parent */
+  left: 0; /* Aligns the dropdown with the parent */
+  background: var(--bg-color); /* Matches the theme background */
+  color: var(--text-color); /* Matches the theme text color */
   flex-direction: column;
   border-radius: 5px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a shadow for better visibility */
+  z-index: 1000; /* Ensures the dropdown appears above other elements */
   padding: 10px 0;
+  min-width: 150px; /* Ensures a consistent width for the dropdown */
 }
 
 .nav-category.open .subcategories {
@@ -113,12 +145,13 @@ nav.navbar {
   text-decoration: none;
   color: inherit;
   transition: background 0.3s, color 0.3s;
-  white-space: nowrap;
+  white-space: nowrap; /* Prevents text from wrapping */
 }
 
+
 .subcategories a:hover {
-  background: var(--primary-color);
-  color: #fff;
+  background: var(--primary-color); /* Highlights the item on hover */
+  color: #fff; /* Changes text color to white on hover */
 }
 
 @media (max-width: 768px) {
@@ -241,6 +274,91 @@ nav.navbar {
         font-size: 2rem;
       }
     }
+     #ai-sidekick {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+  }
+  #ai-chat-button {
+    background-color: #6f42c1;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 28px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  #ai-chat-box {
+    display: none;
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 300px;
+    max-height: 400px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    font-family: sans-serif;
+    display: flex;
+  flex-direction: column;
+  }
+  [data-theme="dark"] #ai-chat-box {
+    background: #000; /* Black background for dark theme */
+    color: #fff; /* White text for better contrast */
+  }
+  #ai-header {
+    background-color: #6f42c1;
+    color: white;
+    padding: 12px;
+    font-weight: bold;
+    text-align: center;
+  }
+  #ai-messages {
+    flex: 1;
+    padding: 10px;
+    height: 260px;
+    overflow-y: auto;
+    font-size: 14px;
+  }
+  #ai-input-area {
+    display: flex;
+    border-top: 1px solid #ccc;
+    padding: 10px;
+  }
+  #ai-input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    font-size: 14px;
+  }
+  #ai-send {
+    background: #6f42c1;
+    color: white;
+    border: none;
+    padding: 0 15px;
+    cursor: pointer;
+  }
+  .chat-container {
+  margin-top: 10px;
+}
+.option-button {
+  background-color: #6f42c1;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.option-button:hover {
+  background-color: #5a34a1;
+}
+
   </style>
 </head>
 <body data-theme="light">
@@ -249,38 +367,37 @@ nav.navbar {
     <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">Toggle Theme</button>
   </header>
 
-  <nav  class="navbar">
-    <div class="nav-category">Profile
-      <div class="subcategories">
-        <a href="about">About Me</a>
-        <a href="resume">Resume</a>
-        <a href="faq">FAQ</a>
-        <a href="hobbies">Interests</a>
-      </div>
+ <nav class="navbar">
+  <div class="nav-category">Profile <span class="dropdown-symbol"><h1>⌄</h1></span>
+    <div class="subcategories">
+      <a href="about">About Me</a>
+      <a href="resume">Resume</a>
+      <a href="faq">FAQ</a>
+      <a href="hobbies">Interests</a>
     </div>
-    <div class="nav-category">Career & Growth
-      <div class="subcategories">
-        <a href="education">Education</a>
-        <a href="experience">Experience</a>
-        <a href="certifications">Certifications</a>
-        <a href="achievements">Achievements</a>
-      </div>
+  </div>
+  <div class="nav-category">Career & Growth <span class="dropdown-symbol"><h1>⌄</h1></span>
+    <div class="subcategories">
+      <a href="education">Education</a>
+      <a href="experience">Experience</a>
+      <a href="certifications">Certifications</a>
+      <a href="achievements">Achievements</a>
     </div>
-    <div class="nav-category">Skills & Work
-      <div class="subcategories">
-        <a href="skills">Skills</a>
-        <a href="projects">Projects</a>
-      </div>
+  </div>
+  <div class="nav-category">Skills & Work <span class="dropdown-symbol"><h1>⌄</h1></span>
+    <div class="subcategories">
+      <a href="skills">Skills</a>
+      <a href="projects">Projects</a>
     </div>
-    <div class="nav-category">Connect
-      <div class="subcategories">
-        <a href="contact">Contact</a>
-        <a href="testimonials">Testimonials</a>
-        <a href="blog">Blog</a>
-      </div>
+  </div>
+  <div class="nav-category">Connect <span class="dropdown-symbol"><h1>⌄</h1></span>
+    <div class="subcategories">
+      <a href="contact">Contact</a>
+      <a href="testimonials">Testimonials</a>
+      <a href="blog">Blog</a>
     </div>
-  </nav>
-
+  </div>
+</nav>
   <section class="hero-section">
     <div class="hero-content">
       <h1 class="typing-title">
@@ -304,6 +421,20 @@ nav.navbar {
         📄 Download Portfolio (PDF)
       </a>
     </div>
+    <div id="ai-sidekick">
+  <button id="ai-chat-button">🤖</button>
+  <div id="ai-chat-box">
+    <div id="ai-header">DinuAI Sidekick</div>
+    <div id="ai-messages">
+      <div><strong>DinuAI:</strong> Hi, I’m Dinu’s AI sidekick! Need help exploring?</div>
+      <div class="chat-container" id="chat"></div>
+    </div>
+    <div id="ai-input-area">
+      <input id="ai-input" type="text" placeholder="Ask me anything..." />
+      <button id="ai-send">Send</button>
+    </div>
+  </div>
+</div>
   </section>
 
   <footer>
@@ -350,8 +481,225 @@ nav.navbar {
 
   // Close subcategories when clicking outside
   document.addEventListener("click", () => {
-    navCategories.forEach(category => category.classList.remove("open"));
+  navCategories.forEach(category => category.classList.remove("open"));
+});
+
+
+const chatButton = document.getElementById("ai-chat-button");
+const chatBox = document.getElementById("ai-chat-box");
+const sendButton = document.getElementById("ai-send");
+const input = document.getElementById("ai-input");
+const chat = document.getElementById('chat');
+let firstMessageSent = false;
+
+
+
+chatButton.onclick = () => {
+  chatBox.style.display = chatBox.style.display === "none" ? "block" : "none";
+};
+
+sendButton.onclick = () => {
+  const text = input.value.trim();
+  if (!text) return;
+
+  addMessage(text, 'user');
+  const response = getResponse(text.toLowerCase());
+  addMessage(`🤖 ${response}`, 'bot');
+  input.value = '';
+
+  if (!firstMessageSent) {
+    firstMessageSent = true;
+    setTimeout(addOptions, 800);
+  } else {
+    setTimeout(addOptions, 800);
+  }
+};
+
+function addMessage(text, sender = 'bot') {
+  const bubble = document.createElement('div');
+  bubble.classList.add('chat-bubble', sender);
+  bubble.textContent = text;
+  chat.appendChild(bubble);
+
+  scrollToBottom();
+}
+
+function scrollToBottom() {
+  const dummy = document.createElement('div');
+  chat.appendChild(dummy);
+  dummy.scrollIntoView({ behavior: 'smooth' });
+}
+
+function addOptions() {
+  const container = document.createElement('div');
+  container.className = 'chat-bubble bot';
+
+  const label = document.createElement('div');
+  label.textContent = 'Choose an option below:';
+
+  const options = document.createElement('div');
+  options.className = 'options';
+
+  const buttons = [
+    'Contact Details',
+    'Resume',
+    'Strongest Skill',
+    'Projects',
+    'Fun Fact',
+    'Game'
+  ];
+
+  buttons.forEach(text => {
+    const button = document.createElement('button');
+    button.className = 'option-button';
+    button.textContent = text;
+    button.onclick = () => handleOptionClick(text);
+    options.appendChild(button);
   });
+
+  container.appendChild(label);
+  container.appendChild(options);
+  chat.appendChild(container);
+
+  scrollToBottom();
+}
+
+let usedFacts = new Set();
+let usedGameQuestions = new Set();
+
+function handleOptionClick(option) {
+  addMessage(option, 'user');
+
+  switch (option) {
+    case 'Contact Details':
+      addMessage('📞 Email: dinesh@example.com\n📍 Location: Kadiri, Andhra Pradesh');
+      break;
+    case 'Resume':
+      addMessage('📄 Opening resume... [Link or download]');
+      break;
+    case 'Strongest Skill':
+      addMessage('💡 Full Stack Development — especially with Python, Django, and REST APIs.');
+      break;
+    case 'Projects':
+      showProjectOptions();
+      return; // skip default addOptions
+     case 'Fun Fact':
+      sendRandomFacts();  // Send 3 random facts
+      break;
+
+    case 'Game':
+      sendRandomGameQuestions();  // Send 3 random questions
+      break;
+  }
+
+  setTimeout(addOptions, 800);
+}
+
+function showProjectOptions() {
+  addMessage('📁 Choose a project:', 'bot');
+
+  const projects = ['Helping Hands', 'Workforce Aggregator', 'Portfolio Website', 'Inventory System'];
+  const container = document.createElement('div');
+  container.className = 'chat-bubble bot';
+  const options = document.createElement('div');
+  options.className = 'options';
+
+  projects.forEach(project => {
+    const button = document.createElement('button');
+    button.className = 'option-button';
+    button.textContent = project;
+    button.onclick = () => handleProjectClick(project);
+    options.appendChild(button);
+  });
+
+  container.appendChild(options);
+  chat.appendChild(container);
+
+  scrollToBottom();
+}
+
+function handleProjectClick(project) {
+  addMessage(project, 'user');
+
+  const descriptions = {
+    'Helping Hands': '🤝 A donation platform where users can contribute and NGOs can track and manage requests.',
+    'Workforce Aggregator': '👥 A system that connects freelancers to job opportunities and manages their tasks efficiently.',
+    'Portfolio Website': '🌐 My personal portfolio built with Django, React, and interactive UI/UX to showcase my skills.',
+    'ticket exchange': 'A platform to sell or exchange expiring event/travel tickets with ease and security.'
+  };
+
+  addMessage(descriptions[project] || '📄 Project description coming soon!');
+  setTimeout(addOptions, 800);
+}
+function sendRandomFacts() {
+  const facts = [
+    '💬 The first computer bug was an actual moth stuck in a relay.',
+    '🧠 The first programmer was Ada Lovelace in the 1800s.',
+    '🔋 The Apollo 11 guidance computer had less RAM than a calculator today!',
+    '🌐 Tim Berners-Lee invented the World Wide Web in 1989.',
+    '🎮 The first video game was created in 1958 and called "Tennis for Two".'
+  ];
+
+  const unused = facts.filter(f => !usedFacts.has(f));
+ 
+
+  if  (unused.length === 0) {
+    addMessage("🧠 You've heard all my fun facts! Refresh to hear them again.", 'bot');
+    return;
+  }
+
+const fact = unused[Math.floor(Math.random() * unused.length)];
+  usedFacts.add(fact);
+  addMessage(fact, 'bot');
+}
+
+function sendRandomGameQuestions() {
+  const questions = [
+    '🔍 Guess the tech: It tracks changes in code and helps teams collaborate. (Hint: Git)',
+    '🤖 What does HTML stand for? (Hint: Markup)',
+    '🚀 Which language is used for styling web pages? (Hint: CSS)',
+    '🧮 What number system do computers use? (Hint: Binary)',
+    '📦 Which tool is used to manage packages in Python? (Hint: pip)'
+  ];
+
+  const unused = questions.filter(q => !usedGameQuestions.has(q));
+
+  if (unused.length === 0) {
+    addMessage("🎉 You've answered all game questions! Refresh to reset.", 'bot');
+  }
+  const question = unused[Math.floor(Math.random() * unused.length)];
+  usedGameQuestions.add(question);
+  addMessage(question, 'bot');
+
+}
+
+// User typing fallback (optional)
+function handleUserInput() {
+  const input = document.getElementById('userInput');
+  const value = input.value.trim();
+  if (value) {
+    addMessage(value, 'user');
+    addMessage("🤖 I'm still learning. Try using one of the options above!");
+    input.value = '';
+    setTimeout(addOptions, 800);
+  }
+}
+
+
+// Text input handling (Q&A style)
+function getResponse(input) {
+  const responses = {
+    hello: "Hi there! How can I assist you today?",
+    hi: "Hello! What would you like to know?",
+    "how are you": "I'm just a program, but I'm here to help you!",
+    hru: "I'm just a program, but I'm here to help you!",
+    "what is your name": "I'm DinuAI, your personal assistant.",
+    "who created you": "I was created by Dinesh Kumar Reddy.",
+    "what can you do": "I can help you explore this portfolio, answer questions, and provide information about Dinesh's skills and projects."
+  };
+
+  return responses[input] || "I'm not sure how to respond to that. Try using one of the options!";
+}
 });
   </script>
 </body>
