@@ -44,7 +44,6 @@
     top: 0;
     z-index: 1000;
     background-color: var(--bg-color-light); /* Use --bg-color-light instead of --bg-color */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
     nav a {
@@ -86,13 +85,14 @@
 }
 
 
-        .typing-title {
-            text-align: center;
-            font-size: 42px;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-        }
+
+  .typing-title {
+    margin: 0 0 0px; /* Removed top margin to bring it closer to the header */
+    text-align: center;
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--primary-color);
+  }
 
         .typing-title span {
             display: inline-block;
@@ -110,10 +110,11 @@
             50% { border-color: transparent; }
         }
 
-        .resume-section {
-            padding: 80px 20px;
-            text-align: center;
-        }
+  .resume-section {
+    padding: 1px 1px; /* Reduced padding to minimize the gap */
+    margin-top: 0; /* Removed extra margin */
+    text-align: center;
+  }
         .resume-section-1 {
             text-align: center;
             padding: 40px 20px;

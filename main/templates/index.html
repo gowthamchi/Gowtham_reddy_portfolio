@@ -22,11 +22,10 @@
       --accent-color: #ff79c6;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+html, body {
+    margin: 0;
+    padding: 0;
+  }
 
     body {
       background-color: var(--bg-color);
@@ -34,19 +33,14 @@
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       line-height: 1.6;
       transition: all 0.3s ease-in-out;
-       padding-top: 80px; /* Adjust this value based on the height of your navbar */
-    }
-
-   header {
-    position: sticky;
-    top: 0;
-    z-index: 1001;
-    background: var(--bg-color);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 10px 15px; /* Reduced padding */
+       }
+    header {
+      position: sticky;
+      top: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 20px;
   }
 
   .header-title {
@@ -65,33 +59,32 @@
       background: var(--accent-color);
       color: var(--bg-color);
     }
-  @media (max-width: 768px) {
-nav.navbar {
-  position: sticky; /* Keeps the navbar at the top */
-  top: 60px; /* Adjust this value based on the height of the header */
-  z-index: 1000; /* Ensures the navbar stays above other content */
-  display: flex;
-  overflow-x: auto;
-  justify-content: flex-start; /* Aligns items to the left */
-  align-items: center; /* Aligns items vertically */
-  flex-wrap: nowrap; /* Prevents wrapping to the next line */
-  overflow: visible; /* Ensures dropdowns are not clipped */
-  padding: 10px 15px;
-  background-color: var(--bg-color); /* Dynamic background based on theme */
-  color: var(--text-color); /* Dynamic text color based on theme */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
-  transition: background-color 0.3s ease, color 0.3s ease;
-  -webkit-overflow-scrolling: touch;
-  white-space: nowrap;
-  scrollbar-width: none; 
-}
+
+  nav.navbar {
+    position: sticky; /* Keeps the navbar at the top */
+    top: 0; /* Adjust this value based on the height of the header */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers the sections horizontally */
+    align-items: center; /* Aligns items vertically */
+    overflow: visible; /* Ensures dropdowns are not clipped */
+    padding: 0px;
+    background-color: var(--bg-color); /* Dynamic background based on theme */
+    color: var(--text-color); /* Dynamic text color based on theme */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+    scrollbar-width: none;
+  }
 
 nav.navbar::-webkit-scrollbar {
   display: none; /* Hides scrollbar in WebKit browsers */
 }
 
 .nav-category {
-  margin: 0 10px;
+  margin: 2px; /* Removes all gaps between categories */
+  padding: 2px; /* Adjust padding if necessary */
   cursor: pointer;
   font-weight: bold;
   text-transform: uppercase;
@@ -104,11 +97,8 @@ nav.navbar::-webkit-scrollbar {
   letter-spacing: 1px; /* Adds spacing between letters */
   color: var(--text-color); /* Dynamic text color based on theme */
   transition: color 0.3s ease; /* Smooth transition for text color */
-flex: 0 0 auto;
-    min-width: 150px; /* Adjust if needed */
-    margin-right: 10px;
+  flex: 0 0 auto;
 }
-  }
 
 .dropdown-symbol {
   margin-left: 5px; /* Adds spacing between the text and the symbol */
@@ -140,6 +130,19 @@ flex: 0 0 auto;
   display: flex; /* Shows the subcategories when the parent is open */
 }
 
+.subcategories a::after {
+  content: " →"; /* Adds a right arrow */
+  font-size: 0.9rem; /* Adjust arrow size */
+  color: var(--text-color); /* Matches text color */
+  margin-left: 5px; /* Adds spacing between text and arrow */
+  transition: color 0.3s ease; /* Smooth transition for arrow color */
+}
+
+.subcategories a:hover::after {
+  color: var(--accent-color); /* Changes arrow color on hover */
+}
+
+
 .subcategories a {
   padding: 10px 15px;
   text-decoration: none;
@@ -165,7 +168,7 @@ flex: 0 0 auto;
   }
 }
     .hero-section {
-      padding: 80px 20px;
+      padding: 20px 20px;
       text-align: center;
     }
 
@@ -255,25 +258,11 @@ flex: 0 0 auto;
       white-space: nowrap;
     }
 
-    @media (max-width: 768px) {
-      .header-title {
-        font-size: 1.5rem;
-        text-align: center;
-      }
-
-      nav.navbar {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .nav-category {
-        margin: 5px 0;
-      }
-
+ 
       .hero-content h1 {
         font-size: 2rem;
       }
-    }
+    
      #ai-sidekick {
     position: fixed;
     bottom: 20px;
@@ -368,7 +357,7 @@ flex: 0 0 auto;
   </header>
 
  <nav class="navbar">
-  <div class="nav-category">Profile <span class="dropdown-symbol"><h1>⌄</h1></span>
+  <div class="nav-category">Profile <span class="dropdown-symbol">⌄</span>
     <div class="subcategories">
       <a href="about">About Me</a>
       <a href="resume">Resume</a>
@@ -376,7 +365,7 @@ flex: 0 0 auto;
       <a href="hobbies">Interests</a>
     </div>
   </div>
-  <div class="nav-category">Career & Growth <span class="dropdown-symbol"><h1>⌄</h1></span>
+  <div class="nav-category">Career & Growth <span class="dropdown-symbol">⌄</span>
     <div class="subcategories">
       <a href="education">Education</a>
       <a href="experience">Experience</a>
@@ -384,13 +373,13 @@ flex: 0 0 auto;
       <a href="achievements">Achievements</a>
     </div>
   </div>
-  <div class="nav-category">Skills & Work <span class="dropdown-symbol"><h1>⌄</h1></span>
+  <div class="nav-category">Skills & Work <span class="dropdown-symbol">⌄</span>
     <div class="subcategories">
       <a href="skills">Skills</a>
       <a href="projects">Projects</a>
     </div>
   </div>
-  <div class="nav-category">Connect <span class="dropdown-symbol"><h1>⌄</h1></span>
+  <div class="nav-category">Connect <span class="dropdown-symbol">⌄</span>
     <div class="subcategories">
       <a href="contact">Contact</a>
       <a href="testimonials">Testimonials</a>
@@ -701,6 +690,23 @@ function getResponse(input) {
   return responses[input] || "I'm not sure how to respond to that. Try using one of the options!";
 }
 });
+  document.addEventListener("DOMContentLoaded", () => {
+    const chatButton = document.getElementById("ai-chat-button");
+    const chatBox = document.getElementById("ai-chat-box");
+    const navCategories = document.querySelectorAll(".nav-category");
+
+    chatButton.onclick = (event) => {
+      event.stopPropagation(); // Prevent the click from propagating to the document
+      chatBox.style.display = chatBox.style.display === "none" ? "block" : "none";
+    };
+
+    // Close the chat box when clicking outside
+    document.addEventListener("click", (event) => {
+      if (!chatBox.contains(event.target) && event.target !== chatButton) {
+        chatBox.style.display = "none";
+      }
+    });
+  });
   </script>
 </body>
 </html>

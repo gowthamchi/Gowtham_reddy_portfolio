@@ -70,6 +70,7 @@
 
     
     .typing-title {
+      margin: 0px 0 0px; 
       text-align: center;
       font-size: 42px;
       font-weight: 700;
@@ -84,14 +85,8 @@
       animation: typing 3s steps(40, end), blink 0.75s step-end infinite;
     }
 
-    @keyframes typing {
-      from { width: 0; }
-      to { width: 100%; }
-    }
-
-    @keyframes blink {
-      50% { border-color: transparent; }
-    }
+  @keyframes typing { from { width: 0; } to { width: 100%; } }
+    @keyframes blink { 50% { border-color: transparent; } }
 
     section {
       padding: 40px 20px;
@@ -142,16 +137,6 @@
             font-size: 0.9rem;
             margin-top: 10px;
         }
-
-    @media (max-width: 768px) {
-      .header-title {
-        font-size: 1.5rem;
-      }
-
-      .typing-title {
-        font-size: 1.6rem;
-      }
-    }
   </style>
 </head>
 <body data-theme="light">
