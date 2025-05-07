@@ -171,16 +171,17 @@
       display: none;
     }
 
-   footer {
-            text-align: center;
-            padding: 5px;
-            margin-top: 5px;
-        }
-
+  footer {
+    text-align: center;
+    padding: 0px;
+    background: var(--secondary-color);
+    border-top: 2px solid var(--text-color-light); /* Optional: border on top */
+}
     .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
     }
 
    .footer-links a {
@@ -194,6 +195,12 @@
     transform: scale(1.1);
     color: var(--accent-color);
   }
+
+    .footer-contact {
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+
 
     .flash-message {
       max-width: 800px;
@@ -223,7 +230,7 @@
   </style>
 </head>
 <body data-theme="light">
-<header style="position: sticky; top: 0; z-index: 1000; background: var(--bg-color); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+<header style="position: sticky; top: 0; z-index: 1000; background: var(--secondary-color); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
   <div class="header-title">Dinesh Reddy Portfolio</div>
   <nav><a href="/">Home</a></nav>
 </header>
@@ -239,9 +246,12 @@
       <div class="contact-left">
         <h1>Get in Touch</h1>
         <h2>🤝 Let’s Collaborate, Code & Connect</h2>
-        <p class="contact-intro">
-  Got a project idea? Need a reliable developer? I'm open to freelance opportunities, tech collaborations, or just a good tech chat. Whether you're looking to build something impactful or simply want to connect — feel free to reach out. Let's team up and turn ideas into amazing solutions!
-</p>
+        <p class="contact-intro, font-family: 'verdana';">
+            I'm always excited to hear from fellow developers, tech enthusiasts, and anyone with a passion for innovation. Whether you have a question, feedback, or just want to say hi, I'm here for it!
+        </p>
+        <p>
+           Got a project idea? Need a reliable developer? I'm open to freelance opportunities, tech collaborations, or just a good tech chat. Whether you're looking to build something impactful or simply want to connect — feel free to reach out. Let's team up and turn ideas into amazing solutions!
+        </p>
 
       </div>
       <div class="contact-right">

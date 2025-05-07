@@ -9,7 +9,7 @@
       --bg-color: #fff;
       --text-color: #000;
       --primary-color: #007bff;
-      --secondary-color: #f1f1f1;
+      --secondary-color: #f8f9fa;
       --accent-color: #ff79c6;
     }
 
@@ -17,7 +17,7 @@
       --bg-color: #121212;
       --text-color: #fff;
       --primary-color: #1e90ff;
-      --secondary-color: #333;
+      --secondary-color: #333333;
     }
 
     body {
@@ -132,13 +132,12 @@ nav a {
       margin: 6px 0;
     }
 
-  
-     footer {
-            text-align: center;
-            padding: 5px;
-            margin-top: 5px;
-        }
-
+   footer {
+    text-align: center;
+    padding: 0px;
+    background: var(--secondary-color);
+    border-top: 2px solid var(--text-color-light); /* Optional: border on top */
+}
     .footer-links {
         display: flex;
         flex-wrap: wrap;
@@ -146,7 +145,7 @@ nav a {
         gap: 15px;
     }
 
-      .footer-links a {
+   .footer-links a {
     color: var(--text-color); /* White in light theme, black in dark theme */
     font-size: 1.2rem;
     text-decoration: none;
@@ -157,10 +156,12 @@ nav a {
     transform: scale(1.1);
     color: var(--accent-color);
   }
-        .footer-contact {
+
+    .footer-contact {
             font-size: 0.9rem;
             margin-top: 10px;
         }
+
     /* Light Theme */
     :root {
         --footer-text-color: #ffffff; /* White text for light theme */
@@ -173,7 +174,7 @@ nav a {
   </style>
 </head>
 <body data-theme="light">
-  <header style="position: sticky; top: 0; z-index: 1000; background: var(--bg-color); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+  <header style="position: sticky; top: 0; z-index: 1000; background: var(--secondary-color); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
   <div class="header-title">Dinesh Reddy Portfolio</div>
   <nav><a href="/">Home</a></nav>
 </header>

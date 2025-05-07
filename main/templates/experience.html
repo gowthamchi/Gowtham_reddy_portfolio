@@ -72,7 +72,7 @@
     .typing-title {
       margin: 0px 0 0px; 
       text-align: center;
-      font-size: 42px;
+      font-size: 38px;
       font-weight: 700;
       color: var(--primary-color);
       margin: 40px 20px 20px;
@@ -85,7 +85,7 @@
       animation: typing 3s steps(40, end), blink 0.75s step-end infinite;
     }
 
-  @keyframes typing { from { width: 0; } to { width: 100%; } }
+    @keyframes typing { from { width: 0; } to { width: 100%; } }
     @keyframes blink { 50% { border-color: transparent; } }
 
     section {
@@ -114,14 +114,20 @@
             margin-top: 5px;
         }
 
+    footer {
+    text-align: center;
+    padding: 0px;
+    background: var(--secondary-color);
+    border-top: 2px solid var(--text-color-light); /* Optional: border on top */
+}
     .footer-links {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 15px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
     }
 
-  .footer-links a {
+   .footer-links a {
     color: var(--text-color); /* White in light theme, black in dark theme */
     font-size: 1.2rem;
     text-decoration: none;
@@ -133,22 +139,20 @@
     color: var(--accent-color);
   }
 
-  .footer-contact {
+    .footer-contact {
             font-size: 0.9rem;
             margin-top: 10px;
         }
+
   </style>
 </head>
 <body data-theme="light">
-  <header style="position: sticky; top: 0; z-index: 1000; background: var(--bg-color); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+  <header style="position: sticky; top: 0; z-index: 1000; background: var(--secondary-color); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
   <div class="header-title">Dinesh Reddy Portfolio</div>
   <nav><a href="/">Home</a></nav>
 </header>
   <section>
     <h1 class="typing-title"><span>💼 My Experience</span></h1>
-  
-    <body data-theme="light">
-    
     <p data-aos="fade-up" data-aos-delay="100">
       While I may not have corporate experience yet, I’ve built and deployed real-world web apps , collaborated through Git, and solved practical challenges. Here's how I turn code into capability:
     </p>

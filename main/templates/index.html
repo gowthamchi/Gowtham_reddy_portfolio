@@ -10,16 +10,18 @@
       --bg-color: #fff;
       --text-color: #000;
       --primary-color: #007bff;
-      --secondary-color: #f1f1f1;
+      --secondary-color: #f8f9fa;
       --accent-color: #ff4081;
+       --nav: rgb(235, 235, 235);
     }
 
     [data-theme="dark"] {
       --bg-color: #121212;
       --text-color: #fff;
       --primary-color: #1e90ff;
-      --secondary-color: #333;
+      --secondary-color: #333333;
       --accent-color: #ff79c6;
+      --nav: #404040;
     }
 
 html, body {
@@ -34,14 +36,16 @@ html, body {
       line-height: 1.6;
       transition: all 0.3s ease-in-out;
        }
-    header {
-      position: sticky;
-      top: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-  }
+header {
+  position: sticky;
+  top: 0; /* This keeps the header at the top */
+  z-index: 1000; /* Ensure it's above other content */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: var(--secondary-color);
+}
 
   .header-title {
     font-size: 1.5rem; /* Reduced font size */
@@ -61,30 +65,27 @@ html, body {
     }
 
   nav.navbar {
-    position: sticky; /* Keeps the navbar at the top */
-    top: 0; /* Adjust this value based on the height of the header */
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Centers the sections horizontally */
-    align-items: center; /* Aligns items vertically */
-    overflow: visible; /* Ensures dropdowns are not clipped */
-    padding: 0px;
-    background-color: var(--bg-color); /* Dynamic background based on theme */
-    color: var(--text-color); /* Dynamic text color based on theme */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
-    transition: background-color 0.3s ease, color 0.3s ease;
-    -webkit-overflow-scrolling: touch;
-    white-space: nowrap;
-    scrollbar-width: none;
-  }
+  position: sticky;
+  top: 70px; /* Add space below the header to prevent overlap */
+  z-index: 888; /* Ensure the navbar stays under the header */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  background: var(--nav);
+  color: var(--text-color);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 
 nav.navbar::-webkit-scrollbar {
   display: none; /* Hides scrollbar in WebKit browsers */
 }
 
 .nav-category {
-  margin: 2px; /* Removes all gaps between categories */
-  padding: 2px; /* Adjust padding if necessary */
+  margin: 0px; /* Removes all gaps between categories */
+  padding: 0px; /* Adjust padding if necessary */
   cursor: pointer;
   font-weight: bold;
   text-transform: uppercase;
@@ -92,7 +93,7 @@ nav.navbar::-webkit-scrollbar {
   position: relative;
   display: flex;
   align-items: center; /* Aligns text and symbol vertically */
-  font-family: "Arial", sans-serif; /* Custom font style */
+  font-family: "verdana"; /* Custom font style */
   font-size: 1rem; /* Adjust font size */
   letter-spacing: 1px; /* Adds spacing between letters */
   color: var(--text-color); /* Dynamic text color based on theme */
@@ -116,7 +117,7 @@ nav.navbar::-webkit-scrollbar {
   position: absolute; /* Positions the dropdown outside the flow of the navbar */
   top: 100%; /* Positions the dropdown below the parent */
   left: 0; /* Aligns the dropdown with the parent */
-  background: var(--bg-color); /* Matches the theme background */
+  background: var(--secondary-color);/* Matches the theme background */
   color: var(--text-color); /* Matches the theme text color */
   flex-direction: column;
   border-radius: 5px;
@@ -201,20 +202,20 @@ nav.navbar::-webkit-scrollbar {
       background: var(--accent-color);
     }
 
-      footer {
-            text-align: center;
-            padding: 5px;
-            margin-top: 5px;
-        }
+       footer {
+    text-align: center;
+    padding: 0px;
+    background: var(--secondary-color);
+    border-top: 2px solid var(--text-color-light); /* Optional: border on top */
+}
+    .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
 
-        .footer-links {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-        }
-
-    .footer-links a {
+   .footer-links a {
     color: var(--text-color); /* White in light theme, black in dark theme */
     font-size: 1.2rem;
     text-decoration: none;
@@ -226,10 +227,11 @@ nav.navbar::-webkit-scrollbar {
     color: var(--accent-color);
   }
 
-        .footer-contact {
+    .footer-contact {
             font-size: 0.9rem;
             margin-top: 10px;
         }
+
 
     .typing-title {
       text-align: center;
@@ -265,7 +267,7 @@ nav.navbar::-webkit-scrollbar {
     
      #ai-sidekick {
     position: fixed;
-    bottom: 20px;
+    bottom: 150px;
     right: 20px;
     z-index: 9999;
   }
@@ -331,15 +333,31 @@ nav.navbar::-webkit-scrollbar {
     padding: 0 15px;
     cursor: pointer;
   }
+#chat {
+  overflow-y: auto;
+  max-height: 400px; /* or whatever height fits your layout */
+  padding: 1rem;
+}
+  .chat-bubble {
+  margin-bottom: 16px; /* Adds space between messages */
+}
   .chat-container {
   margin-top: 10px;
 }
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px; /* <-- Adds space between buttons */
+  margin-top: 10px; /* Adds space above the options */
+  
+}
 .option-button {
+   padding: 8px 12px;
+  background-color: var(--accent-color);
   background-color: #6f42c1;
   color: white;
   border: none;
   border-radius: 5px;
-  padding: 5px 10px;
   cursor: pointer;
   font-size: 12px;
 }
@@ -347,15 +365,18 @@ nav.navbar::-webkit-scrollbar {
 .option-button:hover {
   background-color: #5a34a1;
 }
-
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  max-height: 400px; /* or whatever suits your layout */
+}
   </style>
 </head>
 <body data-theme="light">
-  <header style="position: sticky; top: 0; z-index: 1000; background: var(--bg-color); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+  <header style="position: sticky; top: 0; z-index: 777; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
     <div class="header-title">Dinesh Reddy Portfolio</div>
     <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">Toggle Theme</button>
   </header>
-
  <nav class="navbar">
   <div class="nav-category">Profile <span class="dropdown-symbol">⌄</span>
     <div class="subcategories">
@@ -393,10 +414,10 @@ nav.navbar::-webkit-scrollbar {
         <span>Hi, I'm <i>Dinesh Kumar</i> <span class="wave">👋</span></span>
       </h1>
       <p>
-        <strong><i>🚀 Python Full Stack Developer | MCA Graduate | Experienced in Python, Django, JavaScript, and MySQL | Passionate about building scalable web apps and solving real-world problems.</i></strong>
+        <strong><i> 🚀 Python Full Stack Developer | MCA Graduate | Experienced in Python, Django, JavaScript, and MySQL | Passionate about building scalable web apps and solving real-world problems.</i></strong>
       </p>
       <p>
-        <strong><i>I’m also open to freelance opportunities — if you need a reliable developer for your next project, let’s connect!</i></strong>
+        <strong><i> I’m also open to freelance opportunities — if you need a reliable developer for your next project, let’s connect!</i></strong>
       </p>
       <div class="summary-container">
         <h2>Profile Summary</h2>
@@ -415,7 +436,7 @@ nav.navbar::-webkit-scrollbar {
   <div id="ai-chat-box">
     <div id="ai-header">DinuAI Sidekick</div>
     <div id="ai-messages">
-      <div><strong>DinuAI:</strong> Hi, I’m Dinu’s AI sidekick! Need help exploring?</div>
+      <div><strong>DinuAI:</strong> Hi, I’m Dinesh’s AI sidekick! Need help exploring?</div>
       <div class="chat-container" id="chat"></div>
     </div>
     <div id="ai-input-area">
@@ -438,275 +459,365 @@ nav.navbar::-webkit-scrollbar {
   </footer>
 
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
+  // Theme Toggle
   const toggleBtn = document.getElementById("theme-toggle");
   const body = document.body;
 
-  // Theme toggle functionality
   toggleBtn.addEventListener("click", () => {
     const isDark = body.dataset.theme === "dark";
     body.dataset.theme = isDark ? "light" : "dark";
     localStorage.setItem("theme", body.dataset.theme);
   });
 
-  // Load saved theme
   const savedTheme = localStorage.getItem("theme") || "light";
   body.dataset.theme = savedTheme;
 
-  // Submenu toggle functionality
+  // Submenu Toggle
   const navCategories = document.querySelectorAll(".nav-category");
-
   navCategories.forEach(category => {
     category.addEventListener("click", (event) => {
-      event.stopPropagation(); // Prevent click from propagating to the body
-      // Close other open subcategories
+      event.stopPropagation();
       navCategories.forEach(other => {
         if (other !== category) other.classList.remove("open");
       });
-      // Toggle the clicked category
       category.classList.toggle("open");
     });
   });
-
-  // Close subcategories when clicking outside
   document.addEventListener("click", () => {
-  navCategories.forEach(category => category.classList.remove("open"));
-});
+    navCategories.forEach(category => category.classList.remove("open"));
+  });
 
+  // Chat UI
+  const chatButton = document.getElementById("ai-chat-button");
+  const chatBox = document.getElementById("ai-chat-box");
+  const sendButton = document.getElementById("ai-send");
+  const input = document.getElementById("ai-input");
+  const chat = document.getElementById('chat');
 
-const chatButton = document.getElementById("ai-chat-button");
-const chatBox = document.getElementById("ai-chat-box");
-const sendButton = document.getElementById("ai-send");
-const input = document.getElementById("ai-input");
-const chat = document.getElementById('chat');
-let firstMessageSent = false;
+  let firstMessageSent = false;
+  let usedFacts = new Set();
+  let usedGameQuestions = new Set();
+  let usedProjects = new Set();
 
+  // Restore chat open/close state from localStorage
+  const isChatOpen = localStorage.getItem("chatOpen") === "true";
+  chatBox.style.display = isChatOpen ? "flex" : "none";
 
+  // Toggle Chat
+  chatButton.onclick = (event) => {
+    event.stopPropagation();
+    const shouldShow = chatBox.style.display === "none";
+    chatBox.style.display = shouldShow ? "flex" : "none";
+    localStorage.setItem("chatOpen", shouldShow);
 
-chatButton.onclick = () => {
-  chatBox.style.display = chatBox.style.display === "none" ? "block" : "none";
-};
+    // Scroll to bottom when opening
+    if (shouldShow) {
+      setTimeout(() => {
+        chat.scrollTop = chat.scrollHeight;
+      }, 100);
+    }
+  };
+
+  document.addEventListener("click", (event) => {
+    if (!chatBox.contains(event.target) && event.target !== chatButton) {
+      chatBox.style.display = "none";
+      localStorage.setItem("chatOpen", false);
+    }
+  });
+
+  // Send Button
+  sendButton.onclick = () => {
+    const text = input.value.trim();
+    if (!text) return;
+
+    addMessage(text, 'user');
+    const response = getResponse(text.toLowerCase());
+    addMessage(`🤖 ${response}`, 'bot');
+    input.value = '';
+
+    setTimeout(addOptions, 800);
+    firstMessageSent = true;
+  };
+
+  // Add Message to Chat
+  function addMessage(text, sender = 'bot') {
+    const bubble = document.createElement('div');
+    bubble.classList.add('chat-bubble', sender);
+    bubble.innerHTML = text;
+    chat.appendChild(bubble);
+
+    // Scroll to the bottom after new message
+    setTimeout(scrollToBottom, 200);
+  }
+function getResponse(input) {
+    const responses = {
+      hello: "Hi there! How can I assist you today?",
+      hi: "Hello! What would you like to know?",
+      "how are you": "I'm just a program, but I'm here to help you!",
+      hru: "I'm just a program, but I'm here to help you!",
+      "what is your name": "I'm DinuAI, your personal assistant.",
+      "who created you": "I was created by Dinesh Kumar Reddy.",
+      "what can you do": "I can help you explore this portfolio, answer questions, and provide information about Dinesh's skills and projects."
+    };
+
+    return responses[input] || " I'm still learning. Try using one of the options!";
+  }
+  // Add Options After Each Bot Reply
+  function addOptions() {
+    const container = document.createElement('div');
+    container.className = 'chat-bubble bot';
+
+    const label = document.createElement('div');
+    label.textContent = 'Choose an option below:';
+
+    const options = document.createElement('div');
+    options.className = 'options';
+
+    const buttons = [
+      'Contact Details',
+      'Resume',
+      'Strongest Skill',
+      'Projects',
+      'Fun Fact',
+      'Game'
+    ];
+
+    buttons.forEach(text => {
+      const button = document.createElement('button');
+      button.className = 'option-button';
+      button.textContent = text;
+      button.onclick = () => handleOptionClick(text);
+      options.appendChild(button);
+    });
+
+    container.appendChild(label);
+    container.appendChild(options);
+    chat.appendChild(container);
+
+    // Scroll to bottom after adding options
+    setTimeout(scrollToBottom, 200);
+  }
+
+  function handleOptionClick(option) {
+    addMessage(option, 'user');
+
+    switch (option) {
+      case 'Contact Details':
+        addMessage('📞 Phone: +91 7995775924<br>Email: dinu2854i@gmail.com<br>📍 Kadiri, Andhra Pradesh<br>📄 Opening contact page... <a href="/contact" target="_blank">Click here to view</a>');
+        break;
+      case 'Resume':
+        addMessage('📄 Opening resume... <a href="/resume" target="_blank">Click here to view</a>');
+        break;
+      case 'Strongest Skill':
+        addMessage('💡 Full Stack Development — especially with Python, Django, and MySQL.');
+        break;
+      case 'Projects':
+        showProjectOptions();
+        return;
+      case 'Fun Fact':
+        sendRandomFacts();
+        break;
+      case 'Game':
+        sendRandomGameQuestions();
+        return;
+    }
+
+    setTimeout(addOptions, 800);
+  }
+
+  function showProjectOptions() {
+    addMessage('📁 Choose a project:', 'bot');
+
+    const projects = ['Helping Hands', 'Workforce Aggregator', 'Portfolio Website', 'Ticket Exchange'];
+    const container = document.createElement('div');
+    container.className = 'chat-bubble bot';
+    const options = document.createElement('div');
+    options.className = 'options';
+
+    projects.forEach(project => {
+      const button = document.createElement('button');
+      button.className = 'option-button';
+      button.textContent = project;
+      button.onclick = () => handleProjectClick(project);
+      options.appendChild(button);
+    });
+
+    container.appendChild(options);
+    chat.appendChild(container);
+
+    // Scroll to bottom after displaying project options
+    setTimeout(scrollToBottom, 200);
+  }
+
+  function handleProjectClick(project) {
+    addMessage(project, 'user');
+
+    const descriptions = {
+      'Helping Hands': '🤝 A donation-based platform supporting orphanages by addressing their real-time needs.<br> <br> See the project page for more details.',
+      'Workforce Aggregator': '👥 A real-time Django-based platform connecting users with skilled workers efficiently.<br> <br> See the project page for more details.',
+      'Portfolio Website': '🌐A personal project portal showcasing achievements, skills, and real-world applications.<br> <br> See the project page for more details.',
+      'Ticket Exchange': '🎟️ A platform to sell or exchange expiring event/travel tickets securely.<br> <br> See the project page for more details.'
+    };
+
+    addMessage(descriptions[project] || '📄 Project description coming soon!');
+
+    setTimeout(() => {
+      askForNextStep();
+    }, 800);
+  }
+
+  function askForNextStep() {
+    const container = document.createElement('div');
+    container.className = 'chat-bubble bot';
+
+    const label = document.createElement('div');
+    label.textContent = 'Would you like to see more projects or explore other options?';
+
+    const options = document.createElement('div');
+    options.className = 'options';
+
+    const buttons = [
+      'Projects',
+      'Other Options'
+    ];
+
+    buttons.forEach(text => {
+      const button = document.createElement('button');
+      button.className = 'option-button';
+      button.textContent = text;
+      button.onclick = () => handleNextStepClick(text);
+      options.appendChild(button);
+    });
+
+    container.appendChild(label);
+    container.appendChild(options);
+    chat.appendChild(container);
+
+    // Scroll to bottom after asking for next step
+    setTimeout(scrollToBottom, 200);
+  }
+
+  function handleNextStepClick(option) {
+    addMessage(option, 'user');
+
+    if (option === 'Projects') {
+      showProjectOptions();
+    } else {
+      addOptions(); // Go back to the main options
+    }
+  }
+
+  function sendRandomFacts() {
+    const facts = [
+      '💬 The first computer bug was an actual moth stuck in a relay.',
+      '🧠 The first programmer was Ada Lovelace in the 1800s.',
+      '🔋 The Apollo 11 guidance computer had less RAM than a calculator today!',
+      '🌐 Tim Berners-Lee invented the World Wide Web in 1989.',
+      '🎮 The first video game was created in 1958 and called "Tennis for Two".'
+    ];
+
+    const unused = facts.filter(f => !usedFacts.has(f));
+    if (unused.length === 0) {
+      addMessage("🧠 You've heard all my fun facts! Refresh to hear them again.");
+      return;
+    }
+
+    const fact = unused[Math.floor(Math.random() * unused.length)];
+    usedFacts.add(fact);
+    addMessage(fact);
+  }
+function sendRandomGameQuestions() {
+  const gameQuestions = [
+    {
+      question: '🔍 Guess the tech: It tracks changes in code and helps teams collaborate. (Hint: Git)',
+      answer: 'git'
+    },
+    {
+      question: '🤖 What does HTML stand for? (Hint: Markup)',
+      answer: 'hypertext markup language'
+    },
+    {
+      question: '🚀 Which language is used for styling web pages? (Hint: CSS)',
+      answer: 'css'
+    },
+    {
+      question: '🧮 What number system do computers use? (Hint: Binary)',
+      answer: 'binary'
+    },
+    {
+      question: '📦 Which tool is used to manage packages in Python? (Hint: pip)',
+      answer: 'pip'
+    }
+  ];
+
+  if (usedGameQuestions.size === gameQuestions.length) {
+    addMessage("🎉 You've answered all game questions! Refresh to reset.");
+    return;
+  }
+
+  const available = gameQuestions.filter(q => !usedGameQuestions.has(q.question));
+  const selected = available[Math.floor(Math.random() * available.length)];
+
+  usedGameQuestions.add(selected.question);
+  currentQuestion = selected;
+  awaitingAnswer = true;
+  addMessage(selected.question);
+}
+
+let awaitingAnswer = false;
+let currentQuestion = null; // Fixed indentation
 
 sendButton.onclick = () => {
   const text = input.value.trim();
   if (!text) return;
 
   addMessage(text, 'user');
-  const response = getResponse(text.toLowerCase());
-  addMessage(`🤖 ${response}`, 'bot');
   input.value = '';
 
-  if (!firstMessageSent) {
-    firstMessageSent = true;
+  if (awaitingAnswer && currentQuestion) {
+    if (text.toLowerCase() === currentQuestion.answer.toLowerCase()) {
+      addMessage('🎉 Correct! Well done!');
+    } else {
+      addMessage(`❌ Incorrect. The correct answer was: ${currentQuestion.answer}`);
+    }
+     awaitingAnswer = false;
+    currentQuestion = null;
+    // ✅ Show options ONLY after question is answered
     setTimeout(addOptions, 800);
-  } else {
-    setTimeout(addOptions, 800);
-  }
-};
-
-function addMessage(text, sender = 'bot') {
-  const bubble = document.createElement('div');
-  bubble.classList.add('chat-bubble', sender);
-  bubble.textContent = text;
-  chat.appendChild(bubble);
-
-  scrollToBottom();
-}
-
-function scrollToBottom() {
-  const dummy = document.createElement('div');
-  chat.appendChild(dummy);
-  dummy.scrollIntoView({ behavior: 'smooth' });
-}
-
-function addOptions() {
-  const container = document.createElement('div');
-  container.className = 'chat-bubble bot';
-
-  const label = document.createElement('div');
-  label.textContent = 'Choose an option below:';
-
-  const options = document.createElement('div');
-  options.className = 'options';
-
-  const buttons = [
-    'Contact Details',
-    'Resume',
-    'Strongest Skill',
-    'Projects',
-    'Fun Fact',
-    'Game'
-  ];
-
-  buttons.forEach(text => {
-    const button = document.createElement('button');
-    button.className = 'option-button';
-    button.textContent = text;
-    button.onclick = () => handleOptionClick(text);
-    options.appendChild(button);
-  });
-
-  container.appendChild(label);
-  container.appendChild(options);
-  chat.appendChild(container);
-
-  scrollToBottom();
-}
-
-let usedFacts = new Set();
-let usedGameQuestions = new Set();
-
-function handleOptionClick(option) {
-  addMessage(option, 'user');
-
-  switch (option) {
-    case 'Contact Details':
-      addMessage('📞 Email: dinesh@example.com\n📍 Location: Kadiri, Andhra Pradesh');
-      break;
-    case 'Resume':
-      addMessage('📄 Opening resume... [Link or download]');
-      break;
-    case 'Strongest Skill':
-      addMessage('💡 Full Stack Development — especially with Python, Django, and REST APIs.');
-      break;
-    case 'Projects':
-      showProjectOptions();
-      return; // skip default addOptions
-     case 'Fun Fact':
-      sendRandomFacts();  // Send 3 random facts
-      break;
-
-    case 'Game':
-      sendRandomGameQuestions();  // Send 3 random questions
-      break;
-  }
-
-  setTimeout(addOptions, 800);
-}
-
-function showProjectOptions() {
-  addMessage('📁 Choose a project:', 'bot');
-
-  const projects = ['Helping Hands', 'Workforce Aggregator', 'Portfolio Website', 'Inventory System'];
-  const container = document.createElement('div');
-  container.className = 'chat-bubble bot';
-  const options = document.createElement('div');
-  options.className = 'options';
-
-  projects.forEach(project => {
-    const button = document.createElement('button');
-    button.className = 'option-button';
-    button.textContent = project;
-    button.onclick = () => handleProjectClick(project);
-    options.appendChild(button);
-  });
-
-  container.appendChild(options);
-  chat.appendChild(container);
-
-  scrollToBottom();
-}
-
-function handleProjectClick(project) {
-  addMessage(project, 'user');
-
-  const descriptions = {
-    'Helping Hands': '🤝 A donation platform where users can contribute and NGOs can track and manage requests.',
-    'Workforce Aggregator': '👥 A system that connects freelancers to job opportunities and manages their tasks efficiently.',
-    'Portfolio Website': '🌐 My personal portfolio built with Django, React, and interactive UI/UX to showcase my skills.',
-    'ticket exchange': 'A platform to sell or exchange expiring event/travel tickets with ease and security.'
-  };
-
-  addMessage(descriptions[project] || '📄 Project description coming soon!');
-  setTimeout(addOptions, 800);
-}
-function sendRandomFacts() {
-  const facts = [
-    '💬 The first computer bug was an actual moth stuck in a relay.',
-    '🧠 The first programmer was Ada Lovelace in the 1800s.',
-    '🔋 The Apollo 11 guidance computer had less RAM than a calculator today!',
-    '🌐 Tim Berners-Lee invented the World Wide Web in 1989.',
-    '🎮 The first video game was created in 1958 and called "Tennis for Two".'
-  ];
-
-  const unused = facts.filter(f => !usedFacts.has(f));
- 
-
-  if  (unused.length === 0) {
-    addMessage("🧠 You've heard all my fun facts! Refresh to hear them again.", 'bot');
     return;
   }
+  
 
-const fact = unused[Math.floor(Math.random() * unused.length)];
-  usedFacts.add(fact);
-  addMessage(fact, 'bot');
-}
+const response = getResponse(text.toLowerCase());
+  addMessage(`🤖 ${response}`, 'bot');
+  setTimeout(addOptions, 800);
+};
 
-function sendRandomGameQuestions() {
-  const questions = [
-    '🔍 Guess the tech: It tracks changes in code and helps teams collaborate. (Hint: Git)',
-    '🤖 What does HTML stand for? (Hint: Markup)',
-    '🚀 Which language is used for styling web pages? (Hint: CSS)',
-    '🧮 What number system do computers use? (Hint: Binary)',
-    '📦 Which tool is used to manage packages in Python? (Hint: pip)'
-  ];
-
-  const unused = questions.filter(q => !usedGameQuestions.has(q));
-
-  if (unused.length === 0) {
-    addMessage("🎉 You've answered all game questions! Refresh to reset.", 'bot');
-  }
-  const question = unused[Math.floor(Math.random() * unused.length)];
-  usedGameQuestions.add(question);
-  addMessage(question, 'bot');
-
-}
-
-// User typing fallback (optional)
-function handleUserInput() {
-  const input = document.getElementById('userInput');
-  const value = input.value.trim();
-  if (value) {
-    addMessage(value, 'user');
-    addMessage("🤖 I'm still learning. Try using one of the options above!");
-    input.value = '';
-    setTimeout(addOptions, 800);
-  }
-}
-
-
-// Text input handling (Q&A style)
-function getResponse(input) {
-  const responses = {
-    hello: "Hi there! How can I assist you today?",
-    hi: "Hello! What would you like to know?",
-    "how are you": "I'm just a program, but I'm here to help you!",
-    hru: "I'm just a program, but I'm here to help you!",
-    "what is your name": "I'm DinuAI, your personal assistant.",
-    "who created you": "I was created by Dinesh Kumar Reddy.",
-    "what can you do": "I can help you explore this portfolio, answer questions, and provide information about Dinesh's skills and projects."
-  };
-
-  return responses[input] || "I'm not sure how to respond to that. Try using one of the options!";
-}
-});
-  document.addEventListener("DOMContentLoaded", () => {
-    const chatButton = document.getElementById("ai-chat-button");
-    const chatBox = document.getElementById("ai-chat-box");
-    const navCategories = document.querySelectorAll(".nav-category");
-
-    chatButton.onclick = (event) => {
-      event.stopPropagation(); // Prevent the click from propagating to the document
-      chatBox.style.display = chatBox.style.display === "none" ? "block" : "none";
-    };
-
-    // Close the chat box when clicking outside
-    document.addEventListener("click", (event) => {
-      if (!chatBox.contains(event.target) && event.target !== chatButton) {
-        chatBox.style.display = "none";
-      }
+  // Scroll to bottom when new message is added
+function scrollToBottom() {
+  setTimeout(() => {
+    chat.scrollTo({
+      top: chat.scrollHeight,
+      behavior: 'smooth' // Use 'auto' if you don't want animation
     });
+  }, 100); // Delay ensures DOM updates finish before scrolling
+}
+  // Initial scroll to bottom
+  setTimeout(scrollToBottom, 100);
+
+  // Auto-scroll when new messages are added
+  const observer = new MutationObserver(() => {
+    scrollToBottom();
   });
-  </script>
+
+  observer.observe(chat, {
+    childList: true,
+    subtree: true
+  }); 
+});
+ 
+</script>
+
 </body>
 </html>

@@ -40,13 +40,14 @@
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background-color: var(--bg-color-light); /* Use --bg-color-light instead of --bg-color */
-}
+  }
 
-    nav a {
+  .header-title {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+ nav a {
         text-decoration: none;
         font-size: 1rem;
         padding: 10px 15px;
@@ -58,10 +59,25 @@
         color: var(--accent-color); /* Change color on hover */
         transform: scale(1.1); /* Slight zoom effect */
     }
-        .header-title {
-            font-size: 2rem;
-            font-weight: bold;
-        }
+
+  
+    .typing-title {
+      text-align: center;
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin: 30px 0 20px;
+    }
+
+    .typing-title span {
+      white-space: nowrap;
+      overflow: hidden;
+      display: inline-block;
+      animation: typing 4s steps(40, end), blink 0.75s step-end infinite;
+    }
+
+    @keyframes typing { from { width: 0; } to { width: 100%; } }
+    @keyframes blink { 50% { border-color: transparent; } }
 
         .home-link {
             text-decoration: none;
@@ -84,31 +100,6 @@
     margin-top: 80px; /* NEW: to avoid header overlap */
 }
 
-
-
-  .typing-title {
-    margin: 0 0 0px; /* Removed top margin to bring it closer to the header */
-    text-align: center;
-    font-size: 42px;
-    font-weight: 700;
-    color: var(--primary-color);
-  }
-
-        .typing-title span {
-            display: inline-block;
-            white-space: nowrap;
-            overflow: hidden;
-            animation: typing 4s steps(40, end), blink 0.75s step-end infinite;
-        }
-
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
-        }
-
-        @keyframes blink {
-            50% { border-color: transparent; }
-        }
 
   .resume-section {
     padding: 1px 1px; /* Reduced padding to minimize the gap */
@@ -172,13 +163,10 @@
         }
    footer {
     text-align: center;
-    padding: 20px;
+    padding: 10px;
     background: var(--secondary-color);
     border-top: 2px solid var(--text-color-light); /* Optional: border on top */
 }
-
-        
-
     .footer-links {
         display: flex;
         flex-wrap: wrap;
@@ -216,7 +204,7 @@
     </style>
 </head>
 <body>
-   <header style="position: sticky; top: 0; z-index: 1000; background: var(--bg-color-light); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+   <header style="position: sticky; top: 0; z-index: 1000; background: var(--secondary-color); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
  <div class="header-title">Dinesh Reddy Portfolio</div>
   <nav><a href="/">Home</a></nav>
 </header>

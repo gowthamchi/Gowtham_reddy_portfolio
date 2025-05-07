@@ -6,6 +6,7 @@
   <title>Dinu's Hobbies</title>
   <style>
     :root {
+       --secondary-color: #f8f9fa;
     --bg-color: #fff;
     --text-color: #000;
     --primary-color: #007bff;
@@ -13,9 +14,11 @@
     --card-bg: #fff;
     --card-text: #000;
     --font: Arial, sans-serif;
+   
   }
 
   [data-theme="dark"] {
+    --secondary-color: #333333;
     --bg-color: #121212;
     --text-color: #fff;
     --card-bg: #1e1e1e;
@@ -23,6 +26,7 @@
     --masonry-bg: #000; /* Masonry background in dark mode */
     --area-card-bg: linear-gradient(135deg, #4f46e5, #6d28d9); /* Match Career Interests color */
     --area-card-text: #fff;
+
   }
 
   body {
@@ -156,14 +160,20 @@ header {
     break-inside: avoid;
   }
 
-    
-        footer {
-            text-align: center;
-            padding: 5px;
-            margin-top: 5px;
-        }
+    footer {
+    text-align: center;
+    padding: 0px; /* Corrected padding value */
+    background: var(--secondary-color);
+    border-top: 2px solid var(--text-color-light); /* Optional: border on top */
+}
+    .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
 
-    .footer-links a {
+   .footer-links a {
     color: var(--text-color); /* White in light theme, black in dark theme */
     font-size: 1.2rem;
     text-decoration: none;
@@ -175,24 +185,14 @@ header {
     color: var(--accent-color);
   }
 
-    .footer-links a:hover {
-      transform: scale(1.1);
-      color: var(--accent-color);
-    }
-
     .footer-contact {
-      font-size: 0.9rem;
-      margin-top: 10px;
-    }
-
-    @media (max-width: 768px) {
-      .typing-title { font-size: 30px; }
-      .header-title { font-size: 1.5rem; }
-    }
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
   </style>
 </head>
 <body>
-  <header style="position: sticky; top: 0; z-index: 1000; background: var(--bg-color); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+  <header style="position: sticky; top: 0; z-index: 1000; background: var(--secondary-color); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
   <div class="header-title">Dinesh Reddy Portfolio</div>
   <nav><a href="/">Home</a></nav>
 </header>

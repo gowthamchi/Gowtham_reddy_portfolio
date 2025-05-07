@@ -18,7 +18,7 @@
       --bg-color: #121212;
       --text-color: #ffffff;
       --primary-color: #1e90ff;
-      --secondary-color: #1e1e1e;
+     --secondary-color: #333333;
     }
 
     body {
@@ -156,10 +156,17 @@
     }
 
     footer {
-            text-align: center;
-            padding: 5px;
-            margin-top: 5px;
-        }
+    text-align: center;
+    padding: 0px;
+    background: var(--secondary-color);
+    border-top: 2px solid var(--text-color-light); /* Optional: border on top */
+}
+    .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
 
    .footer-links a {
     color: var(--text-color); /* White in light theme, black in dark theme */
@@ -173,24 +180,15 @@
     color: var(--accent-color);
   }
 
-    .footer-links a:hover {
-      transform: scale(1.1);
-      color: var(--accent-color);
-    }
-
     .footer-contact {
-      font-size: 0.9rem;
-      margin-top: 10px;
-    }
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
 
-    @media (max-width: 768px) {
-      .typing-title { font-size: 30px; }
-      .header-title { font-size: 1.5rem; }
-    }
   </style>
 </head>
 <body data-theme="light">
- <header style="position: sticky; top: 0; z-index: 1000; background: var(--bg-color); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+ <header style="position: sticky; top: 0; z-index: 1000; background: var(--secondary-color); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
   <div class="header-title">Dinesh Reddy Portfolio</div>
   <nav><a href="/">Home</a></nav>
 </header>
