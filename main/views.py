@@ -15,7 +15,7 @@ def contact(request):
         message = request.POST.get('question')
 
         if method == "email":
-            full_message = f"Name: {name}\nEmail: {email}\n\nQuestion:\n{message}"
+            full_message = f"Name: {name}\nEmail: {email}\n\nConnect:\n{message}"
             try :
                 send_mail(
                     subject=subject,
