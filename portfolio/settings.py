@@ -10,7 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY SETTINGS
 SECRET_KEY = 'your-secret-key'
 DEBUG = False
-ALLOWED_HOSTS = ['gowtham-reddy-portfolio-2.onrender.com','localhost']
+ALLOWED_HOSTS = ['gowtham-reddy-portfolio-1.onrender.com']
 
 # INSTALLED APPS (Including all necessary apps)
 INSTALLED_APPS = [  
