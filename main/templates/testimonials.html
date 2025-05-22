@@ -1,41 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Testimonials - Dinu Portfolio</title>
-    <style>
-        :root {
-            --bg-color: #ffffff;
-            --text-color: #000000;
-            --primary-color: #007bff;
-            --secondary-color: #f8f9fa;
-            --accent-color: #ff79c6;
-            --font-family: Arial, sans-serif;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Testimonials - Goutham Portfolio</title>
+  <style>
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #000000;
+      --primary-color: #007bff;
+      --secondary-color: #f8f9fa;
+      --accent-color: #ff79c6;
+      --font-family: Arial, sans-serif;
+    }
 
-        [data-theme="dark"] {
-            --bg-color: #121212;
-            --text-color: #ffffff;
-            --primary-color: #1e90ff;
-            --secondary-color: #333333;
-            --accent-color: #ff79c6;
-        }
+    [data-theme="dark"] {
+      --bg-color: #121212;
+      --text-color: #ffffff;
+      --primary-color: #1e90ff;
+      --secondary-color: #333333;
+      --accent-color: #ff79c6;
+    }
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: var(--font-family);
-            margin: 0;
-            padding: 0;
-            transition: background 0.3s ease, color 0.3s ease;
-        }
- header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-  }
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: var(--font-family);
+      margin: 0;
+      padding: 0;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+    }
 
     .header-title {
       font-size: 2rem;
@@ -43,24 +44,25 @@
     }
 
     nav a {
-        text-decoration: none;
-        font-size: 1rem;
-        padding: 10px 15px;
-        transition: color 0.3s, transform 0.3s;
-        color: var(--text-color); /* White in dark theme, black in light theme */
-    }
-    nav a:hover {
-        color: var(--accent-color); /* Change color on hover */
-        transform: scale(1.1); /* Slight zoom effect */
+      text-decoration: none;
+      font-size: 1rem;
+      padding: 10px 15px;
+      transition: color 0.3s, transform 0.3s;
+      color: var(--text-color);
     }
 
-  .typing-title {
-    margin: 10px 0 0px; /* Reduced top margin to minimize the gap */
-    text-align: center;
-    font-size: 42px;
-    font-weight: 700;
-    color: var(--primary-color);
-  }
+    nav a:hover {
+      color: var(--accent-color);
+      transform: scale(1.1);
+    }
+
+    .typing-title {
+      margin: 10px 0 0px;
+      text-align: center;
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--primary-color);
+    }
 
     .typing-title span {
       white-space: nowrap;
@@ -69,149 +71,152 @@
       animation: typing 4s steps(40, end), blink 0.75s step-end infinite;
     }
 
-    @keyframes typing { from { width: 0; } to { width: 100%; } }
-    @keyframes blink { 50% { border-color: transparent; } }
-
-        section {
-            padding: 40px 20px;
-            max-width: 1100px;
-            margin: auto;
-        }
-
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-
-        .testimonial-card {
-            background: #f1f1f1;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            opacity: 0;
-            transform: translateY(30px);
-            animation: slideUp 1s ease forwards;
-        }
-
-        .testimonial-card.delay-1 {
-            animation-delay: 0.2s;
-        }
-
-        .testimonial-card.delay-2 {
-            animation-delay: 0.4s;
-        }
-
-        .testimonial-quote {
-            font-style: italic;
-            font-size: 16px;
-            color: #333;
-        }
-
-        .testimonial-name {
-            font-weight: bold;
-            margin-top: 15px;
-            color: #444;
-        }
-
-        @keyframes slideUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
- footer {
-    text-align: center;
-    padding: 0px;
-    background: var(--secondary-color);
-    border-top: 2px solid var(--text-color-light); /* Optional: border on top */
-}
-    .footer-links {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
     }
 
-   .footer-links a {
-    color: var(--text-color); /* White in light theme, black in dark theme */
-    font-size: 1.2rem;
-    text-decoration: none;
-    transition: 0.3s ease;
-  }
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
 
-  .footer-links a:hover {
-    transform: scale(1.1);
-    color: var(--accent-color);
-  }
+    section {
+      padding: 40px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .testimonial-card {
+      background: #f1f1f1;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      opacity: 0;
+      transform: translateY(30px);
+      animation: slideUp 1s ease forwards;
+    }
+
+    .testimonial-card.delay-1 { animation-delay: 0.2s; }
+    .testimonial-card.delay-2 { animation-delay: 0.4s; }
+    .testimonial-card.delay-3 { animation-delay: 0.6s; }
+
+    .testimonial-quote {
+      font-style: italic;
+      font-size: 16px;
+      color: #333;
+    }
+
+    .testimonial-name {
+      font-weight: bold;
+      margin-top: 15px;
+      color: #444;
+    }
+
+    @keyframes slideUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    footer {
+      text-align: center;
+      padding: 0px;
+      background: var(--secondary-color);
+      border-top: 2px solid var(--text-color-light);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .footer-links a {
+      color: var(--text-color);
+      font-size: 1.2rem;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      transform: scale(1.1);
+      color: var(--accent-color);
+    }
 
     .footer-contact {
-            font-size: 0.9rem;
-            margin-top: 10px;
-        }
+      font-size: 0.9rem;
+      margin-top: 10px;
+    }
   </style>
 </head>
 <body data-theme="light">
 
-    <!-- Header -->
-    <header style="position: sticky; top: 0; z-index: 1000; background: var(--secondary-color); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
-  <div class="header-title">Dinesh Reddy Portfolio</div>
-  <nav><a href="/">Home</a></nav>
-</header>
+  <!-- Header -->
+  <header style="position: sticky; top: 0; z-index: 1000; background: var(--secondary-color); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+    <div class="header-title">Goutham Reddy Portfolio</div>
+    <nav><a href="/">Home</a></nav>
+  </header>
 
   <h1 class="typing-title" data-aos="fade-down"><span>💬 Testimonials</span></h1>
-<section id="testimonials">
-  <div class="testimonial-grid">
+  <section id="testimonials">
+    <div class="testimonial-grid">
 
-    <!-- Testimonial 1 -->
-    <div class="testimonial-card">
-      <p class="testimonial-quote">“Dinesh demonstrated outstanding ownership and deep backend knowledge during the 'Workforce Aggregator' project. His API design and Django integration added real value to our solution.”</p>
-      <p class="testimonial-name">— Mr. B.Sudeep, Final Year Project Mentor</p>
+      <!-- Testimonial 1 -->
+      <div class="testimonial-card">
+        <p class="testimonial-quote">“Goutham displayed excellent DevOps capabilities during his CI/CD pipeline project using Docker and GitLab. His automation skills greatly enhanced build and deployment reliability.”</p>
+        <p class="testimonial-name">— Mr. Aravind Kumar, Mentor at Board Infinity</p>
+      </div>
+
+      <!-- Testimonial 2 -->
+      <div class="testimonial-card delay-1">
+        <p class="testimonial-quote">“Working with Goutham on the Kubernetes deployment of a Node.js app was inspiring. He managed rolling updates, pods, and services with precision and confidence.”</p>
+        <p class="testimonial-name">— Anusha Reddy, DevOps Peer</p>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="testimonial-card delay-2">
+        <p class="testimonial-quote">“Goutham's project on monitoring with Prometheus & Grafana showed his proactive thinking. His dashboards were insightful, and alerts were configured with great attention to detail.”</p>
+        <p class="testimonial-name">— Ravi Teja, Cloud Trainer</p>
+      </div>
+
+      <!-- Testimonial 4 -->
+      <div class="testimonial-card delay-3">
+        <p class="testimonial-quote">“Goutham’s passion for Cloud and DevOps is evident in the way he approaches real-world problems. His personal portfolio and project execution reflect industry-level preparedness.”</p>
+        <p class="testimonial-name">— Nikhil Reddy, Senior at LPU</p>
+      </div>
+
     </div>
+  </section>
 
-    <!-- Testimonial 2 -->
-    <div class="testimonial-card delay-1">
-      <p class="testimonial-quote">“Working with Dinu on multiple projects helping-hands, Bike-renting was a game changer. His ability to lead sprints and integrate Django made our work efficient and smooth.”</p>
-      <p class="testimonial-name">— Deva Raju, MCA Teammate</p>
+  <!-- Footer -->
+  <footer>
+    <hr style="border: none; border-top: 2px solid var(--text-color); margin: 40px 0;">
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/gouthamreddy1/" target="_blank">LinkedIn</a>
+      <a href="https://github.com/gowthamchi" target="_blank">GitHub</a>
+      <a href="mailto:gowthamchintu2004@gmail.com">Email</a>
+      <a href="tel:+919182164989">Phone</a>
     </div>
-
-    <!-- Testimonial 3 -->
-    <div class="testimonial-card delay-2">
-      <p class="testimonial-quote">“Dinesh quickly grasped full stack concepts and delivered mini projects with confidence. His curiosity, especially in Django and MySql, made him stand out in the JSpiders batch.”</p>
-      <p class="testimonial-name">— R. Kashinath, Trainer at JSpiders</p>
+    <div class="footer-contact">
+      <p>&copy; 2025 Goutham Reddy Portfolio. All rights reserved.</p>
     </div>
+  </footer>
 
-    <!-- Testimonial 4 (Optional Bonus) -->
-    <div class="testimonial-card delay-3">
-      <p class="testimonial-quote">“Dinesh’s personal portfolio is one of the most polished student showcases I’ve reviewed. His UI/UX intuition combined with solid backend skills reflects industry readiness.”</p>
-      <p class="testimonial-name">— Nagarjuna Deepak B, Brother</p>
-    </div>
-
-  </div>
-</section>
-
-
-    <!-- Footer -->
-    <footer>
-      <hr style="border: none; border-top: 2px solid var(--text-color); margin: 40px 0;">
-        <div class="footer-links">
-            <a href="https://www.linkedin.com/in/dinu2854i/" target="_blank">LinkedIn</a>
-            <a href="https://github.com/dinu2854i" target="_blank">GitHub</a>
-            <a href="mailto:ydinu2854i@gmail.com">Email</a>
-            <a href="tel:+917995775924">Phone</a>
-        </div>
-        <div class="footer-contact">
-            <p>&copy; 2025 Dinesh Reddy Portfolio. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <!-- Theme Toggle Script -->
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const savedTheme = localStorage.getItem("theme") || "light";
-            document.body.dataset.theme = savedTheme;
-        });
-    </script>
+  <!-- Theme Toggle Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const savedTheme = localStorage.getItem("theme") || "light";
+      document.body.dataset.theme = savedTheme;
+    });
+  </script>
 
 </body>
 </html>

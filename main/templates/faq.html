@@ -189,7 +189,7 @@
 </head>
 <body data-theme="light">
  <header style="position: sticky; top: 0; z-index: 1000; background: var(--secondary-color); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
-  <div class="header-title">Dinesh Reddy Portfolio</div>
+  <div class="header-title">Goutham Reddy Portfolio</div>
   <nav><a href="/">Home</a></nav>
 </header>
 
@@ -201,40 +201,43 @@
       <div class="faq-item">
         <button class="faq-question">💻 What technologies do you work with?</button>
         <div class="faq-answer">
-          <p>I specialize in Python, Django, REST APIs, MySQL, JavaScript, HTML/CSS, and Git.</p>
+          <p>I work with Docker, Kubernetes, AWS, Git, GitLab CI/CD, Prometheus, Grafana, Node.js, and MySQL. I also have experience with deploying cloud-native applications and automating workflows.</p>
         </div>
       </div>
+      
       <div class="faq-item">
         <button class="faq-question">🌍 Are you available for remote work?</button>
         <div class="faq-answer">
-          <p>Yes, I'm comfortable working remotely and have collaborated on distributed projects before.</p>
+          <p>Yes, I'm open to remote work opportunities and have experience collaborating on cloud-based and distributed DevOps projects.</p>
         </div>
       </div>
+      
       <div class="faq-item">
         <button class="faq-question">📄 How can I view your resume?</button>
         <div class="faq-answer">
-          <p>You can view or download my resume from the <a href="/resume" style="color: var(--primary-color);">Resume page</a>.</p>
+          <p>You can view or download my resume from the <a href="/resume" style="color: var(--primary-color);">Resume page</a> or contact me directly via <a href="mailto:ydinu2854i@gmail.com" style="color: var(--primary-color);">email</a>.</p>
         </div>
       </div>
+      
 
       <!-- Custom Question Form -->
       <div class="custom-question-form" data-aos="zoom-in">
        <form method="POST" action="" data-aos="fade-up">
-  {% csrf_token %}
+ 
   <h3 style="text-align:center; margin-top:40px; color:var(--primary-color);">Ask Your Own Question</h3>
-    {% if messages %}
+   
     <div>
-      {% for message in messages %}
+      
         <div class="flash-message 
           {% if 'success' in message.tags %}flash-success
           {% elif 'error' in message.tags %}flash-error
           {% else %}flash-warning
           {% endif %}">
-          {{ message }}
+          
         </div>
-      {% endfor %}
+      
     </div>
-  {% endif %}
+ 
   <div style="max-width: 600px; margin: 0 auto;">
     <input type="text" name="name" placeholder="Your Name" required style="width:100%; margin: 10px 0; padding:10px;" />
     <input type="email" name="email" placeholder="Your Email" required style="width:100%; margin: 10px 0; padding:10px;" />
@@ -270,13 +273,13 @@
   <footer>
     <hr style="border: none; border-top: 2px solid var(--text-color); margin: 40px 0;">
     <div class="footer-links">
-       <a href="https://www.linkedin.com/in/dinu2854i/" target="_blank">LinkedIn</a>
-      <a href="https://github.com/dinu2854i" target="_blank">GitHub</a>
-      <a href="mailto:ydinu2854i@gmail.com">Email</a>
-      <a href="tel:+917995775924">Phone</a>
+       <a href="https://www.linkedin.com/in/gouthamreddy1/" target="_blank">LinkedIn</a>
+      <a href="https://github.com/gowthamchii" target="_blank">GitHub</a>
+      <a href="mailto:gowthamchintu2004@gmail.com">Email</a>
+      <a href="tel:+919182164989">Phone</a>
     </div>
     <div class="footer-contact">
-      <p>&copy; 2025 Dinesh Reddy Portfolio. All rights reserved.</p>
+      <p>&copy; 2025 Goutham Reddy Portfolio. All rights reserved.</p>
     </div>
   </footer>
 
@@ -294,7 +297,7 @@
         whatsappLabel.style.background = 'var(--secondary-color)';
         whatsappLabel.style.color = 'var(--primary-color)';
       } else if (radio.id === 'whatsapp') {
-        whatsappLabel.style.background = 'green';
+        whatsappLabel.style.background = 'green'; 
         whatsappLabel.style.color = 'white';
         emailLabel.style.background = 'var(--secondary-color)';
         emailLabel.style.color = 'var(--primary-color)';

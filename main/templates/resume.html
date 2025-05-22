@@ -1,10 +1,10 @@
-{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume - Dinu Portfolio</title>
+    <title>Resume - Gangeddula Goutham Reddy</title>
     <style>
         /* General Styles */
         :root {
@@ -35,77 +35,55 @@
             transition: background 0.3s ease, color 0.3s ease;
         }
 
- header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-  }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
 
-  .header-title {
-    font-size: 2rem;
-    font-weight: bold;
-  }
-
- nav a {
-        text-decoration: none;
-        font-size: 1rem;
-        padding: 10px 15px;
-        transition: color 0.3s, transform 0.3s;
-        color: var(--text-color); /* White in dark theme, black in light theme */
-    }
-
-    nav a:hover {
-        color: var(--accent-color); /* Change color on hover */
-        transform: scale(1.1); /* Slight zoom effect */
-    }
-
-  
-    .typing-title {
-      text-align: center;
-      font-size: 42px;
-      font-weight: 700;
-      color: var(--primary-color);
-      margin: 30px 0 20px;
-    }
-
-    .typing-title span {
-      white-space: nowrap;
-      overflow: hidden;
-      display: inline-block;
-      animation: typing 4s steps(40, end), blink 0.75s step-end infinite;
-    }
-
-    @keyframes typing { from { width: 0; } to { width: 100%; } }
-    @keyframes blink { 50% { border-color: transparent; } }
-
-        .home-link {
-            text-decoration: none;
-            color: var(--bg-color-light);
-            font-size: 1rem;
+        .header-title {
+            font-size: 2rem;
             font-weight: bold;
-            background-color: var(--primary-color);
+        }
+
+        nav a {
+            text-decoration: none;
+            font-size: 1rem;
             padding: 10px 15px;
-            border-radius: 5px;
-            transition: background 0.3s, transform 0.3s;
+            transition: color 0.3s, transform 0.3s;
+            color: var(--text-color); /* White in dark theme, black in light theme */
         }
 
-        .home-link:hover {
-            background-color: var(--accent-color);
-            transform: scale(1.1);
+        nav a:hover {
+            color: var(--accent-color); /* Change color on hover */
+            transform: scale(1.1); /* Slight zoom effect */
         }
+
+        .typing-title {
+            text-align: center;
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 30px 0 20px;
+        }
+
+        .typing-title span {
+            white-space: nowrap;
+            overflow: hidden;
+            display: inline-block;
+            animation: typing 4s steps(40, end), blink 0.75s step-end infinite;
+        }
+
+        @keyframes typing { from { width: 0; } to { width: 100%; } }
+        @keyframes blink { 50% { border-color: transparent; } }
+
         .resume-section {
-    padding: 80px 20px;
-    text-align: center;
-    margin-top: 80px; /* NEW: to avoid header overlap */
-}
+            padding: 80px 20px;
+            text-align: center;
+            margin-top: 80px; 
+        }
 
-
-  .resume-section {
-    padding: 1px 1px; /* Reduced padding to minimize the gap */
-    margin-top: 0; /* Removed extra margin */
-    text-align: center;
-  }
         .resume-section-1 {
             text-align: center;
             padding: 40px 20px;
@@ -114,11 +92,6 @@
             margin: 40px auto;
             max-width: 600px;
         }
-        .resume-section { /* Added for consistency */
-            padding: 80px 20px;
-            text-align: center;
-        }
-
 
         .resume-container {
             max-width: 1000px;
@@ -161,87 +134,89 @@
         .note a:hover {
             text-decoration: underline;
         }
-   footer {
-    text-align: center;
-    padding: 10px;
-    background: var(--secondary-color);
-    border-top: 2px solid var(--text-color-light); /* Optional: border on top */
-}
-    .footer-links {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-    }
 
-   .footer-links a {
-    color: var(--text-color); /* White in light theme, black in dark theme */
-    font-size: 1.2rem;
-    text-decoration: none;
-    transition: 0.3s ease;
-  }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: var(--secondary-color);
+            border-top: 2px solid var(--text-color-light); 
+        }
 
-  .footer-links a:hover {
-    transform: scale(1.1);
-    color: var(--accent-color);
-  }
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
 
-    .footer-contact {
+        .footer-links a {
+            color: var(--text-color); /* White in light theme, black in dark theme */
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            transform: scale(1.1);
+            color: var(--accent-color);
+        }
+
+        .footer-contact {
             font-size: 0.9rem;
             margin-top: 10px;
         }
 
-    /* Light Theme */
-    :root {
-        --footer-text-color: #ffffff; /* White text for light theme */
-    }
+        /* Light Theme */
+        :root {
+            --footer-text-color: #ffffff; /* White text for light theme */
+        }
 
-    /* Dark Theme */
-    [data-theme="dark"] {
-        --footer-text-color: #000000; /* Black text for dark theme */
-    }
-
+        /* Dark Theme */
+        [data-theme="dark"] {
+            --footer-text-color: #000000; /* Black text for dark theme */
+        }
     </style>
 </head>
 <body>
    <header style="position: sticky; top: 0; z-index: 1000; background: var(--secondary-color); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
- <div class="header-title">Dinesh Reddy Portfolio</div>
-  <nav><a href="/">Home</a></nav>
-</header>
-    <section class="resume-section">
-    <div class="resume-container">
-        <h1 class="typing-title" data-aos="fade-up" data-aos-delay="100"><span>📄 My Resume</span></h1>
-        <iframe src="/static/resume/Dinesh_Resume.pdf" frameborder="0"></iframe>
-        <div class="resume-section-1">
-            <p>If you'd like to know more about my background, education, and projects, feel free to download my resume below.</p>
-        </div>  
-        <div class="download-btn">
-            <a href="/static/resume/Dinesh_Resume.pdf" download class="btn">⬇️ Download Resume (PDF)</a>
+       <div class="header-title">Gangeddula Goutham Reddy's Portfolio</div>
+       <nav><a href="/">Home</a></nav>
+   </header>
+
+   <section class="resume-section">
+        <div class="resume-container">
+            <h1 class="typing-title" data-aos="fade-up" data-aos-delay="100"><span>📄 My Resume</span></h1>
+            <iframe src="/static/resume/newcv2.pdf" frameborder="0"></iframe>
+            <div class="resume-section-1">
+                <p>If you'd like to know more about my background, education, and projects, feel free to download my resume below.</p>
+            </div>  
+            <div class="download-btn">
+                <a href="/static/resume/newcv2.pdf" download class="btn">⬇️ Download Resume (PDF)</a>
+            </div>
+            <p class="note">
+                👉 Your browser does not support viewing PDFs. <a href="/static/resume/newcv2.pdf" download>Click here to download the resume.</a>
+            </p>
         </div>
-        <p class="note">
-            👉 Your browser does not support viewing PDFs. <a href="/static/resume/Dinesh_Resume.pdf" download>Click here to download the resume.</a>
-        </p>
-    </div>
-</section>
     </section>
-     <footer class="footer">
+
+    <footer class="footer">
         <div class="footer-links">
-        <a href="https://www.linkedin.com/in/dinu2854i/" target="_blank">LinkedIn</a>
-      <a href="https://github.com/dinu2854i" target="_blank">GitHub</a>
-      <a href="mailto:ydinu2854i@gmail.com">Email</a>
-      <a href="tel:+917995775924">Phone</a>
-      </div>
+            <a href="https://www.linkedin.com/in/gouthamreddy/" target="_blank">LinkedIn</a>
+            <a href="https://github.com/gouthamreddy" target="_blank">GitHub</a>
+            <a href="mailto:gowthamchintu2004@gmail.com">Email</a>
+            <a href="tel:+919182164989">Phone</a>
+        </div>
         <div class="footer-contact">
-            <p>&copy; 2025 Dinesh Reddy Portfolio. All rights reserved.</p>
+            <p>&copy; 2025 Gangeddula Goutham Reddy Portfolio. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
         // Apply saved theme from localStorage
-         document.addEventListener("DOMContentLoaded", () => {
-        const savedTheme = localStorage.getItem("theme") || "light";
-        document.body.dataset.theme = savedTheme;
-    });
+        document.addEventListener("DOMContentLoaded", () => {
+            const savedTheme = localStorage.getItem("theme") || "light";
+            document.body.dataset.theme = savedTheme;
+        });
     </script>
 </body>
 </html>
